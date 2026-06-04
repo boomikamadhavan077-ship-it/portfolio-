@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Boomika M – Aspiring Data Analyst, AI & Data Science Student, Python Developer. Professional portfolio showcasing projects, skills, and certifications." />
+  <meta name="keywords" content="Boomika M, Data Analyst, AI, Data Science, Python Developer, Portfolio, Machine Learning" />
+  <meta name="author" content="Boomika M" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Boomika M | AI & Data Science Portfolio" />
+  <meta property="og:description" content="Aspiring Data Analyst | AI & Data Science Student | Python Developer" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://boomika-portfolio.web.app" />
+  <title>Boomika M | AI & Data Science Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <!-- ✅ ADDED: EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init("JVYyJ0qNrtg8j4Vfr");</script>
+</head>
+<body>
+
+<!-- ========== LOADING SCREEN ========== -->
+<div id="loader">
+  <div class="loader-content">
+    <div class="loader-logo">BOOMIKA MADHAVAN</div>
+    <div class="loader-bar"><div class="loader-progress"></div></div>
+    <p>Loading Portfolio...</p>
+  </div>
+</div>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">BOOMIKA<span>.M</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#certifications" class="nav-link">Certifications</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#achievements" class="nav-link">Achievements</a></li>
+      <li><a href="#resume" class="nav-link">Resume</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-sun" id="themeIcon"></i>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-particle" id="particles"></div>
+  </div>
+  <div class="hero-container">
+    <div class="hero-text" data-aos="fade-right">
+      <p class="hero-greeting">👋 Hello, I'm</p>
+      <h1 class="hero-name">BOOMIKA M</h1>
+      <div class="hero-title-wrapper">
+        <span class="hero-title-static">I'm a </span>
+        <span class="hero-typed" id="typedText"></span>
+        <span class="cursor">|</span>
+      </div>
+      <p class="hero-bio">
+        A B.Tech Artificial Intelligence and Data Science student passionate about
+        <strong>Data Analytics</strong>, <strong>Python Development</strong>,
+        <strong>AI Solutions</strong>, and <strong>Full Stack Web Development</strong>.
+        I enjoy building real-world projects and transforming data into actionable insights.
+      </p>
+      <div class="hero-buttons">
+        <a href="BOOMIKA M 24.pdf" class="btn btn-primary" id="downloadResumeBtn">
+          <i class="fas fa-download"></i> Download Resume
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <i class="fas fa-envelope"></i> Contact Me
+        </a>
+        <a href="#projects" class="btn btn-ghost">
+          <i class="fas fa-code"></i> View Projects
+        </a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://www.linkedin.com/in/boomika-m-734210376" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/boomikamadhavan077-ship-it" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:boomikamadhavan077@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="hero-image" data-aos="fade-left">
+      <div class="hero-img-wrapper">
+        <div class="hero-img-ring ring-1"></div>
+        <div class="hero-img-ring ring-2"></div>
+        <div class="hero-img-ring ring-3"></div>
+        <div class="hero-avatar">
+        <img src="my photo.jpeg" alt="Boomika M" />
+        </div>
+      </div>
+      <div class="hero-badge badge-1"><i class="fab fa-python"></i> Python</div>
+      <div class="hero-badge badge-2"><i class="fas fa-chart-bar"></i> Data Analytics</div>
+      <div class="hero-badge badge-3"><i class="fas fa-brain"></i> AI / ML</div>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <span class="stat-num" data-target="10">0</span><span>+</span>
+      <p>Certifications</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="3">0</span><span>+</span>
+      <p>Projects</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="2">0</span><span></span>
+      <p>Internships</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="15">0</span><span>+</span>
+      <p>Technologies</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-label">Who Am I</p>
+      <h2 class="section-title">About Me</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-card glass" data-aos="fade-up" data-aos-delay="100">
+        <div class="about-icon"><i class="fas fa-graduation-cap"></i></div>
+        <h3>Education</h3>
+        <p class="about-degree">B.Tech – Artificial Intelligence & Data Science</p>
+        <p class="about-institution">Currently Pursuing</p>
+        <ul class="about-list">
+          <li><i class="fas fa-check-circle"></i> AI & Machine Learning Fundamentals</li>
+          <li><i class="fas fa-check-circle"></i> Data Structures & Algorithms</li>
+          <li><i class="fas fa-check-circle"></i> Statistical Analysis & Modeling</li>
+          <li><i class="fas fa-check-circle"></i> Database Management Systems</li>
+        </ul>
+      </div>
+      <div class="about-card glass" data-aos="fade-up" data-aos-delay="200">
+        <div class="about-icon"><i class="fas fa-bullseye"></i></div>
+        <h3>Career Objective</h3>
+        <p class="about-text">
+          Seeking opportunities in <strong>Data Analytics</strong>, <strong>Business Intelligence</strong>,
+          <strong>AI</strong>, and <strong>Software Development</strong> where I can apply analytical
+          thinking and technical skills to solve real-world problems and drive meaningful impact.
+        </p>
+      </div>
+      <div class="about-card glass" data-aos="fade-up" data-aos-delay="300">
+        <div class="about-icon"><i class="fas fa-heart"></i></div>
+        <h3>Technical Interests</h3>
+        <div class="interest-tags">
+          <span class="tag">Data Analytics</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Python Programming</span>
+          <span class="tag">Data Visualization</span>
+          <span class="tag">Business Intelligence</span>
+          <span class="tag">Full Stack Dev</span>
+          <span class="tag">Power BI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SKILLS ========== -->
+<section class="section section-alt" id="skills">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-label">What I Know</p>
+      <h2 class="section-title">Technical Skills</h2>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-category glass" data-aos="fade-up" data-aos-delay="100">
+        <div class="skill-cat-header">
+          <i class="fas fa-code"></i>
+          <h3>Programming</h3>
+        </div>
+        <div class="skill-item"><div class="skill-info"><span>Python</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>JavaScript</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" data-width="80"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>SQL</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>HTML</span><span>92%</span></div><div class="skill-bar"><div class="skill-fill" data-width="92"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>CSS</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" data-width="88"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>C Programming</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
+      </div>
+
+      <div class="skill-category glass" data-aos="fade-up" data-aos-delay="200">
+        <div class="skill-cat-header">
+          <i class="fas fa-chart-pie"></i>
+          <h3>Data Analytics</h3>
+        </div>
+        <div class="skill-item"><div class="skill-info"><span>Power BI</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>Excel</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" data-width="88"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>Pandas</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>NumPy</span><span>87%</span></div><div class="skill-bar"><div class="skill-fill" data-width="87"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>Data Visualization</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></div>
+      </div>
+
+      <div class="skill-category glass" data-aos="fade-up" data-aos-delay="300">
+        <div class="skill-cat-header">
+          <i class="fas fa-database"></i>
+          <h3>Database & Tools</h3>
+        </div>
+        <div class="skill-item"><div class="skill-info"><span>Firebase</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" data-width="80"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>MySQL</span><span>82%</span></div><div class="skill-bar"><div class="skill-fill" data-width="82"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>Git & GitHub</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>VS Code</span><span>92%</span></div><div class="skill-bar"><div class="skill-fill" data-width="92"></div></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROJECTS ========== -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-label">What I've Built</p>
+      <h2 class="section-title">Featured Projects</h2>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="project-card glass" data-aos="fade-up" data-aos-delay="100">
+        <div class="project-img"><i class="fas fa-chart-line"></i></div>
+        <div class="project-content">
+          <div class="project-tags"><span class="ptag">Python</span><span class="ptag">Pandas</span><span class="ptag">Matplotlib</span></div>
+          <h3>Restaurant Data Analysis</h3>
+          <p>End-to-end data analysis project on restaurant dataset — data cleaning, EDA, customer insights, and actionable business recommendations using Python.</p>
+          <ul class="project-features">
+            <li><i class="fas fa-check"></i> Data Cleaning & Preprocessing</li>
+            <li><i class="fas fa-check"></i> Exploratory Data Analysis</li>
+            <li><i class="fas fa-check"></i> Customer Insights</li>
+            <li><i class="fas fa-check"></i> Business Recommendations</li>
+          </ul>
+          <div class="project-actions">
+            <a href="https://github.com/boomikamadhavan077-ship-it/data-analysis-project" target="_blank" class="btn-sm btn-outline-sm"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#" class="btn-sm btn-primary-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card glass" data-aos="fade-up" data-aos-delay="150">
+        <div class="project-img"><i class="fas fa-wallet"></i></div>
+        <div class="project-content">
+          <div class="project-tags"><span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">Python</span></div>
+          <h3>Expense Tracker</h3>
+          <p>A fully functional expense tracking web application with monthly reports, category-wise breakdown, and local storage persistence.</p>
+          <ul class="project-features">
+            <li><i class="fas fa-check"></i> Add & Manage Expenses</li>
+            <li><i class="fas fa-check"></i> Monthly Reports</li>
+            <li><i class="fas fa-check"></i> Local Storage</li>
+            <li><i class="fas fa-check"></i> Visual Charts</li>
+          </ul>
+          <div class="project-actions">
+            <a href="https://github.com/boomikamadhavan077-ship-it/expenses-tracker" target="_blank" class="btn-sm btn-outline-sm"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#" class="btn-sm btn-primary-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card glass" data-aos="fade-up" data-aos-delay="200">
+        <div class="project-img"><i class="fas fa-exchange-alt"></i></div>
+        <div class="project-content">
+          <div class="project-tags"><span class="ptag">Python</span><span class="ptag">API</span></div>
+          <h3>Currency Converter</h3>
+          <p>Real-time currency conversion app leveraging live exchange rate APIs with a clean modern UI and support for 150+ currencies.</p>
+          <ul class="project-features">
+            <li><i class="fas fa-check"></i> Live Exchange Rates</li>
+            <li><i class="fas fa-check"></i> 150+ Currencies</li>
+            <li><i class="fas fa-check"></i> API Integration</li>
+          </ul>
+          <div class="project-actions">
+            <a href="https://github.com/boomikamadhavan077-ship-it/currency-converter" target="_blank" class="btn-sm btn-outline-sm"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#" class="btn-sm btn-primary-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
+      </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Future AI Projects -->
+    <div class="future-projects" data-aos="fade-up">
+      <h3><i class="fas fa-rocket"></i> Future AI Projects</h3>
+      <div class="future-grid">
+        <div class="future-card">
+          <i class="fas fa-shield-alt"></i>
+          <h4>Smart Vendor App</h4>
+          <p>An AI-powered inventory and sales management platform that helps small vendors predict stock demand, track profits, and optimize business decisions.</p>
+          <span class="status-badge">Coming Soon</span>
+        </div>
+        <div class="future-card">
+          <i class="fas fa-filter"></i>
+          <h4>AI-Powered Medical Report Risk Scoring & Early Warning System</h4>
+          <p>An intelligent healthcare solution that analyzes medical reports to assess patient risk levels and provide early disease warning alerts.</p>
+          <span class="status-badge">In Planning</span>
+        </div>
+        <div class="future-card">
+          <i class="fas fa-boxes"></i>
+          <h4>DNA-Based Encoding and Pattern Analysis</h4>
+          <p>A bioinformatics system that uses DNA sequence encoding techniques and AI-driven pattern analysis for efficient biological data processing and insights discovery.</p>
+          <span class="status-badge">In Planning</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CERTIFICATIONS ========== -->
+<section class="section section-alt" id="certifications">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-label">My Credentials</p>
+      <h2 class="section-title">Certifications</h2>
+    </div>
+    <div class="cert-grid">
+
+      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="100" onclick="openCertModal('DSA Python', 'Data Structures & Algorithms in Python', 'Comprehensive course covering arrays, linked lists, trees, graphs, and dynamic programming in Python.', 'DSA.jpeg')">
+        <div class="cert-icon"><i class="fab fa-python"></i></div>
+        <div class="cert-content">
+          <h4>Data Structures & Algorithms</h4>
+          <p>Python Programming</p>
+          <span class="cert-badge">Programming</span>
+        </div>
+        <div class="cert-hover"><i class="fas fa-eye"></i> View</div>
+      </div>
+
+      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="200" onclick="openCertModal('Full Stack', 'Full Stack Development', 'Comprehensive full stack web development including frontend, backend, and database integration.','full stack development.jpeg')">
+        <div class="cert-icon"><i class="fas fa-layer-group"></i></div>
+        <div class="cert-content">
+          <h4>Full Stack Development</h4>
+          <p>Web Development</p>
+          <span class="cert-badge">Development</span>
+        </div>
+        <div class="cert-hover"><i class="fas fa-eye"></i> View</div>
+      </div>
+
+      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="250" onclick="openCertModal('Tally', 'Tally Certification', 'Accounting and financial management using Tally ERP software.','TALLY.jpeg')">
+        <div class="cert-icon"><i class="fas fa-calculator"></i></div>
+        <div class="cert-content">
+          <h4>Tally</h4>
+          <p>Accounting Software</p>
+          <span class="cert-badge">Finance</span>
+        </div>
+        <div class="cert-hover"><i class="fas fa-eye"></i> View</div>
+      </div>
+
+      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="300" onclick="openCertModal('PGDCA', 'Post Graduate Diploma in Computer Applications', 'Advanced computer applications covering programming, databases, and software development.','PGDCA2.jpeg')">
+        <div class="cert-icon"><i class="fas fa-university"></i></div>
+        <div class="cert-content">
+          <h4>PGDCA</h4>
+          <p>Computer Applications</p>
+          <span class="cert-badge">Diploma</span>
+        </div>
+        <div class="cert-hover"><i class="fas fa-eye"></i> View</div>
+      </div>
+
+      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="350" onclick="openCertModal('Diploma', 'Diploma in Programming Languages', 'Multi-language programming diploma covering C, C++, Java, and Python.','DPL2.jpeg')">
+        <div class="cert-icon"><i class="fas fa-code"></i></div>
+        <div class="cert-content">
+          <h4>Programming Languages</h4>
+          <p>Diploma Course</p>
+          <span class="cert-badge">Diploma</span>
+        </div>
+        <div class="cert-hover"><i class="fas fa-eye"></i> View</div>
+      </div>
+
+      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="400" onclick="openCertModal('Power BI', 'Power BI Certification', 'Data visualization and business intelligence using Microsoft Power BI.')">
+        <div class="cert-icon"><i class="fas fa-chart-bar"></i></div>
+        <div class="cert-content">
+          <h4>Power BI</h4>
+          <p>Data Visualization</p>
+          <span class="cert-badge">Analytics</span>
+        </div>
+        <div class="cert-hover"><i class="fas fa-eye"></i> View</div>
+      </div>
+
+      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="450" onclick="openCertModal('Internship', 'Internship Certificate', 'Certificate of completion for professional internship experiences in data analytics and Python development.','internship certificate.jpeg')">
+        <div class="cert-icon"><i class="fas fa-briefcase"></i></div>
+        <div class="cert-content">
+          <h4>Internship Certificates</h4>
+          <p>Professional Experience</p>
+          <span class="cert-badge">Experience</span>
+        </div>
+        <div class="cert-hover"><i class="fas fa-eye"></i> View</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Certificate Modal -->
+<div class="modal-overlay" id="certModal" onclick="closeCertModal()">
+  <div class="modal-box glass" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeCertModal()"><i class="fas fa-times"></i></button>
+    <div class="cert-img-wrapper" id="certImgWrapper">
+      <img id="certModalImg" src="" alt="Certificate" />
+      <div class="cert-img-placeholder" id="certImgPlaceholder">
+        <i class="fas fa-certificate"></i>
+      </div>
+    </div>
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+    <div class="modal-meta">
+      <span><i class="fas fa-user"></i> Boomika M</span>
+      <span><i class="fas fa-calendar"></i> 2023–2024</span>
+    </div>
+    <a id="certDownloadBtn" href="#" download class="btn btn-primary" style="margin-top:1rem;">
+      <i class="fas fa-download"></i> Download Certificate
+    </a>
+  </div>
+</div>
+<!-- ========== EXPERIENCE ========== -->
+<section class="section" id="experience">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-label">Where I've Worked</p>
+      <h2 class="section-title">Experience</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card glass">
+          <div class="timeline-header">
+            <div>
+              <h3>Data Analyst Intern</h3>
+              <p class="timeline-company"><i class="fas fa-building"></i> Cognifyz Technologies</p>
+            </div>
+            <span class="timeline-badge">Internship</span>
+          </div>
+          <div class="timeline-tags">
+            <span>Data Cleaning</span><span>Data Visualization</span><span>Analytics</span>
+          </div>
+          <ul class="timeline-tasks">
+            <li><i class="fas fa-angle-right"></i> Cleaned and preprocessed large datasets for analysis</li>
+            <li><i class="fas fa-angle-right"></i> Created visual dashboards and interactive reports</li>
+            <li><i class="fas fa-angle-right"></i> Delivered analytics reports with actionable business insights</li>
+            <li><i class="fas fa-angle-right"></i> Collaborated with team on data-driven decision making</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card glass">
+          <div class="timeline-header">
+            <div>
+              <h3>Python Intern</h3>
+              <p class="timeline-company"><i class="fas fa-building"></i> RISE 3.0</p>
+            </div>
+            <span class="timeline-badge">Internship</span>
+          </div>
+          <div class="timeline-tags">
+            <span>Python</span><span>Problem Solving</span><span>Mini Projects</span>
+          </div>
+          <ul class="timeline-tasks">
+            <li><i class="fas fa-angle-right"></i> Developed Python scripts for automation and data processing</li>
+            <li><i class="fas fa-angle-right"></i> Solved algorithmic problems and coding challenges</li>
+            <li><i class="fas fa-angle-right"></i> Built mini projects applying core Python concepts</li>
+            <li><i class="fas fa-angle-right"></i> Collaborated in an agile development environment</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== ACHIEVEMENTS ========== -->
+<section class="section section-alt" id="achievements">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-label">My Wins</p>
+      <h2 class="section-title">Achievements</h2>
+    </div>
+    <div class="achievements-grid">
+      <div class="achievement-card glass" data-aos="fade-up" data-aos-delay="100">
+        <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
+        <h4>Diploma in Programming Languages</h4>
+        <p>Successfully completed a comprehensive diploma in multiple programming languages including C, C++, Java, and Python.</p>
+      </div>
+      <div class="achievement-card glass" data-aos="fade-up" data-aos-delay="150">
+        <div class="achievement-icon"><i class="fas fa-medal"></i></div>
+        <h4>PGDCA Certification</h4>
+        <p>Earned the Post Graduate Diploma in Computer Applications, covering advanced software development and management topics.</p>
+      </div>
+      <div class="achievement-card glass" data-aos="fade-up" data-aos-delay="200">
+        <div class="achievement-icon"><i class="fas fa-certificate"></i></div>
+        <h4>Multiple Technical Certifications</h4>
+        <p>Earned 10+ technical certifications from recognized platforms covering Data Analytics, Power BI, Python, and Networking.</p>
+      </div>
+      <div class="achievement-card glass" data-aos="fade-up" data-aos-delay="250">
+        <div class="achievement-icon"><i class="fas fa-briefcase"></i></div>
+        <h4>Internship Completion</h4>
+        <p>Successfully completed internships at Cognifyz Technologies (Data Analytics) and RISE 3.0 (Python Development).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== RESUME ========== -->
+<section class="section" id="resume">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-label">My Resume</p>
+      <h2 class="section-title">Download CV</h2>
+    </div>
+    <div class="resume-wrapper" data-aos="fade-up">
+      <div class="resume-preview glass">
+        <div class="resume-mock">
+          <div class="resume-header-mock">
+            <div class="resume-name-mock">Boomika M</div>
+            <div class="resume-title-mock">AI & Data Science Student | Python Developer</div>
+          </div>
+          <div class="resume-body-mock">
+
+            <div class="resume-section-mock">
+              <p style="color:#60a5fa; font-size:0.65rem; font-weight:700; margin:0 0 4px 0; text-transform:uppercase; letter-spacing:0.05em;">Education</p>
+              <p style="color:#e2e8f0; font-size:0.7rem; margin:2px 0;">B.Tech – Artificial Intelligence & Data Science</p>
+              <p style="color:#94a3b8; font-size:0.65rem; margin:2px 0;">Currently Pursuing</p>
+            </div>
+
+            <div class="resume-section-mock">
+              <p style="color:#60a5fa; font-size:0.65rem; font-weight:700; margin:6px 0 4px 0; text-transform:uppercase; letter-spacing:0.05em;">Skills</p>
+              <p style="color:#e2e8f0; font-size:0.65rem; margin:2px 0;">Python · SQL · JavaScript · HTML · CSS · C</p>
+              <p style="color:#94a3b8; font-size:0.65rem; margin:2px 0;">Power BI · Pandas · NumPy · MySQL · Firebase</p>
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+      <div class="resume-info">
+        <h3>My Professional Resume</h3>
+        <p>My resume highlights my education, technical skills, project experience, and certifications — everything a recruiter needs to know about me at a glance.</p>
+        <div class="resume-stats">
+          <div class="resume-stat">
+            <i class="fas fa-download"></i>
+            <span id="downloadCount">0</span>
+            <p>Downloads</p>
+          </div>
+          <div class="resume-stat">
+            <i class="fas fa-eye"></i>
+            <span>—</span>
+            <p>Views</p>
+          </div>
+        </div>
+        <a href="BOOMIKA M 24.pdf" download class="btn btn-primary" id="downloadResumeBtn2">
+          <i class="fas fa-download"></i> Download Resume (PDF)
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ========== CONTACT ========== -->
+<section class="section section-alt" id="contact">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-label">Get In Touch</p>
+      <h2 class="section-title">Contact Me</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info" data-aos="fade-right">
+        <h3>Let's work together</h3>
+        <p>I'm open to internships, placement opportunities, collaborations, and freelance projects. Feel free to reach out!</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <p>Email</p>
+              <a href="mailto:boomikamadhavan077@gmail.com">boomikamadhavan077@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+            <div>
+              <p>LinkedIn</p>
+              <a href="https://www.linkedin.com/in/boomika-m-734210376" target="_blank">linkedin.com/in/boomika-m</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fab fa-github"></i></div>
+            <div>
+              <p>GitHub</p>
+              <a href="https://github.com/boomikamadhavan077-ship-it" target="_blank">github.com/boomikamadhavan077-ship-it</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrapper" data-aos="fade-left">
+        <form class="contact-form glass" id="contactForm" onsubmit="submitForm(event)">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Subject of your message" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+            <span id="submitText"><i class="fas fa-paper-plane"></i> Send Message</span>
+            <span id="submitLoading" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Sending...</span>
+          </button>
+          <div class="form-success" id="formSuccess" style="display:none;">
+            <i class="fas fa-check-circle"></i> Message sent successfully! I'll get back to you soon.
+          </div>
+          <div class="form-error" id="formError" style="display:none;">
+            <i class="fas fa-exclamation-circle"></i> Something went wrong. Please try again.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo">BOOMIKA<span>.M</span></span>
+        <p>Aspiring Data Analyst & AI enthusiast building impactful solutions through code and data.</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/in/boomika-m-734210376" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/boomikamadhavan077-ship-it" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="mailto:boomikamadhavan077@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Info</h4>
+        <p><i class="fas fa-envelope"></i> boomikamadhavan077@gmail.com</p>
+        <p><i class="fab fa-linkedin"></i> linkedin.com/in/boomika-m</p>
+        <p><i class="fab fa-github"></i> github.com/boomika-m</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Boomika M. All rights reserved. | Designed with <i class="fas fa-heart" style="color:#ef4444;"></i> for impact.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<!-- Firebase SDK -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getFirestore, collection, addDoc, serverTimestamp, doc, getDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  // =============================================
+  //Firebase config
+  // =============================================
+  const firebaseConfig = {
+    apiKey: "AIzaSyBV-gjuuJzdl7v9MJkgmJR4Pi8X4OYQrTM",
+    authDomain: "boomika-portfolio.firebaseapp.com",
+    projectId: "boomika-portfolio",
+    storageBucket: "boomika-portfolio.firebasestorage.app",
+    messagingSenderId: "786157868760",
+    appId: "1:786157868760:web:d4b529c0ae61ccd87fa9ad",
+    measurementId: "G-57KWVN0T0F"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // ✅ UPDATED: Contact form now sends email via EmailJS
+  window.submitFormFirebase = async (data) => {
+    let emailSent = false;
+    try {
+            await emailjs.send("service_i61iqdu", "template_dcmbaun", {
+        from_name:  data.name,
+        from_email: data.email,
+        name:       data.name,
+        email:      data.email,
+        subject:    data.subject,
+        message:    data.message,
+        to_email:   "boomikamadhavan077@gmail.com"
+      });
+      emailSent = true;
+    } catch (e) {
+      console.error("EmailJS error:", e);
+    }
+    try {
+      await addDoc(collection(db, "contacts"), {
+        ...data,
+        timestamp: serverTimestamp()
+      });
+    } catch (e) {
+      console.error("Firebase error:", e);
+    }
+    return emailSent;
+  };
+
+  // Resume download tracking
+  window.trackResumeDownload = async () => {
+    try {
+      const ref = doc(db, "analytics", "resume");
+      await updateDoc(ref, { downloads: increment(1) });
+    } catch (e) {
+      console.error("Tracking error:", e);
+    }
+  };
+
+  // Track visitor
+  window.trackVisitor = async () => {
+    try {
+      await addDoc(collection(db, "visitors"), {
+        timestamp: serverTimestamp(),
+        page: window.location.href
+      });
+    } catch (e) {}
+  };
+
+  window.trackVisitor();
+</script>
+
+<script src="js/main.js"></script>
+</body>
+</html>

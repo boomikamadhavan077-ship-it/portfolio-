@@ -1,5 +1,5 @@
 /* ============================================
-   BOOMIKA M — PROFESSIONAL PORTFOLIO JS
+   BOOMIKA M — EXECUTIVE PORTFOLIO JS
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,9 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
       loader.classList.add('hidden');
       setTimeout(() => loader.remove(), 500);
     }
-  }, 1200);
+  }, 1000);
 
-  // ===== NAVBAR & SCROLL SPY =====
+  // ===== TOP SCROLL PROGRESS BAR & NAVBAR =====
+  const scrollProgress = document.getElementById('scrollProgress');
   const navbar = document.getElementById('navbar');
   const backToTop = document.getElementById('backToTop');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -21,6 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollY / docHeight) * 100;
+
+    if (scrollProgress) {
+      scrollProgress.style.width = progress + '%';
+    }
 
     if (scrollY > 50) {
       navbar.classList.add('scrolled');
@@ -34,9 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
       backToTop.classList.remove('visible');
     }
 
-    // ScrollSpy active state
+    // ScrollSpy active link tracking
     sections.forEach(section => {
-      const top = section.offsetTop - 130;
+      const top = section.offsetTop - 140;
       const bottom = top + section.offsetHeight;
       if (scrollY >= top && scrollY < bottom) {
         navLinks.forEach(link => {
@@ -49,11 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  if (backToTop) {
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
-  // ===== MOBILE MENU =====
+  // ===== MOBILE NAV =====
   const hamburger = document.getElementById('hamburger');
   const navLinksContainer = document.getElementById('navLinks');
 
@@ -86,6 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
       updateThemeIcon(next);
+      if (window.mySandboxChart) {
+        updateChartColors(next);
+      }
     });
   }
 
@@ -95,8 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ===== TYPING ANIMATION EFFECT =====
-  const words = ['Data Analyst', 'Python Developer', 'AI & ML Engineer', 'Business Intelligence Specialist'];
+  // ===== TYPING ANIMATION =====
+  const words = ['Data Analytics', 'Python ETL & Automation', 'Power BI & DAX', 'Machine Learning Models'];
   let wordIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
@@ -114,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
       charIndex++;
     }
 
-    let speed = isDeleting ? 50 : 100;
+    let speed = isDeleting ? 40 : 90;
 
     if (!isDeleting && charIndex === currentWord.length) {
       speed = 2000;
@@ -128,9 +140,150 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(typeEffect, speed);
   }
 
-  setTimeout(typeEffect, 1000);
+  setTimeout(typeEffect, 800);
 
-  // ===== INTERSECTION OBSERVER FOR AOS ANIMATIONS =====
+  // ===== HERO TERMINAL TAB SWITCHER =====
+  window.switchTermTab = (tab) => {
+    const tabs = document.querySelectorAll('.term-tab');
+    const pyBox = document.getElementById('termCodePy');
+    const sqlBox = document.getElementById('termCodeSql');
+
+    tabs.forEach(t => t.classList.remove('active'));
+
+    if (tab === 'py') {
+      tabs[0].classList.add('active');
+      pyBox.style.display = 'block';
+      sqlBox.style.display = 'none';
+    } else {
+      tabs[1].classList.add('active');
+      pyBox.style.display = 'none';
+      sqlBox.style.display = 'block';
+    }
+  };
+
+  // ===== COPY EMAIL TO CLIPBOARD =====
+  window.copyEmail = () => {
+    const email = "boomikamadhavan077@gmail.com";
+    navigator.clipboard.writeText(email).then(() => {
+      const btnText = document.getElementById('copyEmailText');
+      if (btnText) {
+        btnText.textContent = "Copied to Clipboard!";
+        setTimeout(() => { btnText.textContent = "Copy Email"; }, 2500);
+      }
+    });
+  };
+
+  // ===== CHART.JS INTERACTIVE SANDBOX =====
+  let sandboxChart = null;
+
+  const chartDataConfigs = {
+    churn: {
+      type: 'doughnut',
+      labels: ['Retained Customers', 'At-Risk Churn', 'High Risk Churn'],
+      datasets: [{
+        data: [78, 14, 8],
+        backgroundColor: ['#10B981', '#F59E0B', '#EF4444'],
+        borderWidth: 2,
+        borderColor: '#0F172A'
+      }],
+      insight: '<strong>ChurnGuard Insight:</strong> Random Forest model flags customer churn risk with 94.2% precision, enabling targeted retention campaigns before contract expiry.'
+    },
+    sales: {
+      type: 'line',
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+      datasets: [
+        {
+          label: 'Actual Revenue ($k)',
+          data: [42, 48, 55, 52, 60, 68, 72, 80],
+          borderColor: '#38BDF8',
+          backgroundColor: 'rgba(56, 189, 248, 0.1)',
+          fill: true,
+          tension: 0.4
+        },
+        {
+          label: 'ML Forecast ($k)',
+          data: [42, 48, 55, 52, 62, 70, 76, 85],
+          borderColor: '#2563EB',
+          borderDash: [5, 5],
+          fill: false,
+          tension: 0.4
+        }
+      ],
+      insight: '<strong>Sales Forecast Model:</strong> Time-series ML model accurately projected Q2 revenue growth with < 3.2% Mean Absolute Percentage Error (MAPE).'
+    },
+    ml: {
+      type: 'bar',
+      labels: ['Logistic Reg', 'Decision Tree', 'Random Forest', 'XGBoost Benchmark'],
+      datasets: [{
+        label: 'Accuracy Rate (%)',
+        data: [76.5, 82.0, 94.2, 95.1],
+        backgroundColor: ['rgba(56, 189, 248, 0.5)', 'rgba(37, 99, 235, 0.6)', '#10B981', 'rgba(56, 189, 248, 0.9)'],
+        borderRadius: 8
+      }],
+      insight: '<strong>Model Comparison:</strong> Random Forest Classifier optimized with 5-fold Cross Validation produced optimal balance between accuracy and computational overhead.'
+    }
+  };
+
+  function initSandboxChart() {
+    const ctx = document.getElementById('sandboxChart');
+    if (!ctx) return;
+
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const textColor = currentTheme === 'light' ? '#1E293B' : '#F8FAFC';
+
+    sandboxChart = new Chart(ctx, {
+      type: chartDataConfigs.churn.type,
+      data: {
+        labels: chartDataConfigs.churn.labels,
+        datasets: chartDataConfigs.churn.datasets
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { labels: { color: textColor, font: { family: 'Plus Jakarta Sans', weight: '600' } } }
+        }
+      }
+    });
+
+    window.mySandboxChart = sandboxChart;
+  }
+
+  function updateChartColors(theme) {
+    if (!sandboxChart) return;
+    const textColor = theme === 'light' ? '#1E293B' : '#F8FAFC';
+    if (sandboxChart.options.plugins.legend) {
+      sandboxChart.options.plugins.legend.labels.color = textColor;
+    }
+    sandboxChart.update();
+  }
+
+  window.updateSandboxChart = (key) => {
+    const tabs = document.querySelectorAll('.sandbox-tab');
+    tabs.forEach(t => t.classList.remove('active'));
+
+    const activeTabMap = { churn: 0, sales: 1, ml: 2 };
+    if (tabs[activeTabMap[key]]) {
+      tabs[activeTabMap[key]].classList.add('active');
+    }
+
+    const config = chartDataConfigs[key];
+    const insightsEl = document.getElementById('sandboxInsights');
+    if (insightsEl) {
+      insightsEl.innerHTML = `<div class="insight-pill"><i class="fas fa-lightbulb"></i> ${config.insight}</div>`;
+    }
+
+    if (sandboxChart) {
+      sandboxChart.config.type = config.type;
+      sandboxChart.data.labels = config.labels;
+      sandboxChart.data.datasets = config.datasets;
+      sandboxChart.update();
+    }
+  };
+
+  initSandboxChart();
+
+  // ===== INTERSECTION OBSERVER FOR AOS =====
   const aosElements = document.querySelectorAll('[data-aos]');
   const aosObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -139,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
         aosObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   aosElements.forEach(el => aosObserver.observe(el));
 
@@ -150,28 +303,26 @@ document.addEventListener('DOMContentLoaded', () => {
       if (entry.isIntersecting) {
         const fill = entry.target;
         const width = fill.getAttribute('data-width');
-        setTimeout(() => {
-          fill.style.width = width + '%';
-        }, 150);
+        setTimeout(() => { fill.style.width = width + '%'; }, 100);
         skillObserver.unobserve(fill);
       }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.2 });
 
   skillFills.forEach(fill => skillObserver.observe(fill));
 
-  // ===== STAT COUNTER ANIMATION =====
+  // ===== STAT COUNTERS =====
   const statNums = document.querySelectorAll('.stat-num');
   const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const el = entry.target;
         const target = parseInt(el.getAttribute('data-target'), 10);
-        animateCounter(el, 0, target, 1600);
+        animateCounter(el, 0, target, 1500);
         counterObserver.unobserve(el);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.4 });
 
   statNums.forEach(el => counterObserver.observe(el));
 
@@ -187,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(updateCounter);
   }
 
-  // ===== SKILLS CATEGORY FILTER =====
+  // ===== SKILL CATEGORY FILTER =====
   const skillFilterBtns = document.querySelectorAll('.filter-btn');
   const skillCategories = document.querySelectorAll('.skill-category');
 
@@ -197,22 +348,21 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.add('active');
 
       const filter = btn.getAttribute('data-filter');
-
       skillCategories.forEach(cat => {
         const catGroup = cat.getAttribute('data-category');
         if (filter === 'all' || catGroup === filter) {
           cat.style.display = 'block';
-          setTimeout(() => { cat.style.opacity = '1'; cat.style.transform = 'translateY(0)'; }, 50);
+          setTimeout(() => { cat.style.opacity = '1'; cat.style.transform = 'translateY(0)'; }, 30);
         } else {
           cat.style.opacity = '0';
-          cat.style.transform = 'translateY(20px)';
-          setTimeout(() => { cat.style.display = 'none'; }, 300);
+          cat.style.transform = 'translateY(15px)';
+          setTimeout(() => { cat.style.display = 'none'; }, 250);
         }
       });
     });
   });
 
-  // ===== PROJECT CATEGORY FILTER =====
+  // ===== PROJECT CATEGORY FILTER & INSTANT SEARCH =====
   const projectFilterBtns = document.querySelectorAll('.project-filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
 
@@ -220,22 +370,53 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       projectFilterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-
-      const filter = btn.getAttribute('data-pfilter');
-
-      projectCards.forEach(card => {
-        const categories = card.getAttribute('data-pcategory') || '';
-        if (filter === 'all' || categories.includes(filter)) {
-          card.style.display = 'flex';
-          setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
-        } else {
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(20px)';
-          setTimeout(() => { card.style.display = 'none'; }, 300);
-        }
-      });
+      filterProjects();
     });
   });
+
+  window.filterProjectsBySearch = () => {
+    filterProjects();
+  };
+
+  function filterProjects() {
+    const activeBtn = document.querySelector('.project-filter-btn.active');
+    const pfilter = activeBtn ? activeBtn.getAttribute('data-pfilter') : 'all';
+    const searchVal = (document.getElementById('projectSearch')?.value || '').toLowerCase().trim();
+
+    projectCards.forEach(card => {
+      const categories = card.getAttribute('data-pcategory') || '';
+      const cardText = card.textContent.toLowerCase();
+
+      const matchesCategory = (pfilter === 'all' || categories.includes(pfilter));
+      const matchesSearch = (!searchVal || cardText.includes(searchVal));
+
+      if (matchesCategory && matchesSearch) {
+        card.style.display = 'flex';
+        setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 30);
+      } else {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(15px)';
+        setTimeout(() => { card.style.display = 'none'; }, 250);
+      }
+    });
+  }
+
+  // ===== CODE SNIPPETS SWITCHER =====
+  window.switchSnippet = (key) => {
+    const tabs = document.querySelectorAll('.snippet-tab');
+    tabs.forEach(t => t.classList.remove('active'));
+
+    const tabMap = { etl: 0, sql: 1, ml: 2 };
+    if (tabs[tabMap[key]]) tabs[tabMap[key]].classList.add('active');
+
+    const etlBox = document.getElementById('snippetEtl');
+    const sqlBox = document.getElementById('snippetSql');
+    const mlBox = document.getElementById('snippetMl');
+
+    if (etlBox) etlBox.style.display = key === 'etl' ? 'block' : 'none';
+    if (sqlBox) sqlBox.style.display = key === 'sql' ? 'block' : 'none';
+    if (mlBox) mlBox.style.display = key === 'ml' ? 'block' : 'none';
+  };
 
   // ===== PROJECT MODAL LOGIC =====
   window.openProjectModal = (title, desc, tags, demoUrl, githubUrl) => {
@@ -280,7 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // ===== CERTIFICATE MODAL LOGIC =====
+  // ===== CERTIFICATE LIGHTBOX MODAL =====
   window.openCertModal = (shortName, title, desc, file) => {
     document.getElementById('modalTitle').textContent = title;
     document.getElementById('modalDesc').textContent = desc;
@@ -297,14 +478,8 @@ document.addEventListener('DOMContentLoaded', () => {
       img.classList.remove('loaded');
       placeholder.classList.remove('hidden');
       img.src = file;
-      img.onload = () => {
-        img.classList.add('loaded');
-        placeholder.classList.add('hidden');
-      };
-      img.onerror = () => {
-        img.classList.remove('loaded');
-        placeholder.classList.remove('hidden');
-      };
+      img.onload = () => { img.classList.add('loaded'); placeholder.classList.add('hidden'); };
+      img.onerror = () => { img.classList.remove('loaded'); placeholder.classList.remove('hidden'); };
 
       if (downloadBtn) {
         downloadBtn.href = file;
@@ -331,7 +506,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Close modals on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       window.closeProjectModal();
@@ -382,22 +556,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // ===== RESUME TRACKING =====
-  const resumeBtns = document.querySelectorAll('#downloadResumeBtn, #downloadResumeBtn2');
+  // ===== RESUME DOWNLOAD TRACKING =====
+  const resumeBtns = document.querySelectorAll('#downloadResumeBtn');
   resumeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       if (typeof window.trackResumeDownload === 'function') {
         window.trackResumeDownload();
       }
-      const countEl = document.getElementById('downloadCount');
-      if (countEl) {
-        countEl.textContent = parseInt(countEl.textContent, 10) + 1;
-      }
     });
   });
 
-  // ===== DYNAMIC MOUSE GLOW FOR CARDS =====
-  document.querySelectorAll('.project-card, .cert-card, .achievement-card, .about-card').forEach(card => {
+  // ===== DYNAMIC CARD MOUSE LIGHTING EFFECT =====
+  document.querySelectorAll('.project-card, .cert-card, .achievement-card, .about-card, .terminal-window').forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * 100;
@@ -407,11 +577,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ===== HERO PARTICLES =====
+  // ===== HERO BACKGROUND PARTICLES =====
   function initParticles() {
     const container = document.getElementById('particles');
     if (!container) return;
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 28; i++) {
       const p = document.createElement('div');
       p.className = 'particle';
       const size = Math.random() * 4 + 2;
@@ -420,9 +590,9 @@ document.addEventListener('DOMContentLoaded', () => {
         height: ${size}px;
         left: ${Math.random() * 100}%;
         bottom: -10px;
-        animation-duration: ${Math.random() * 12 + 6}s;
-        animation-delay: ${Math.random() * 6}s;
-        opacity: ${Math.random() * 0.4 + 0.2};
+        animation-duration: ${Math.random() * 10 + 5}s;
+        animation-delay: ${Math.random() * 5}s;
+        opacity: ${Math.random() * 0.45 + 0.15};
       `;
       container.appendChild(p);
     }

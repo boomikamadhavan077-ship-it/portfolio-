@@ -1,5 +1,5 @@
 /* ============================================
-   BOOMIKA M — EXECUTIVE PORTFOLIO JS
+   BOOMIKA M — 3D INTERACTIVE PORTFOLIO JS (THREE.JS + VANILLA TILT)
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,6 +12,130 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => loader.remove(), 500);
     }
   }, 1000);
+
+  // ===== THREE.JS 3D WEBGL GRAPHICS SYSTEM =====
+  function initThreeJS() {
+    const canvas = document.getElementById('threeCanvas');
+    if (!canvas || typeof THREE === 'undefined') return;
+
+    // 1. Scene, Camera, Renderer
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      60,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+    camera.position.z = 30;
+
+    const renderer = new THREE.WebGLRenderer({
+      canvas: canvas,
+      alpha: true,
+      antialias: true
+    });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // 2. 3D Wireframe TorusKnot Data Core
+    const geometry = new THREE.TorusKnotGeometry(8, 2.5, 120, 16);
+    const material = new THREE.MeshBasicMaterial({
+      color: 0x38bdf8,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.25
+    });
+    const torusKnot = new THREE.Mesh(geometry, material);
+    scene.add(torusKnot);
+
+    // 3. 3D Dynamic Particle Neural Network Constellation
+    const particleCount = 450;
+    const particlesGeometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    const colors = new Float32Array(particleCount * 3);
+
+    const color1 = new THREE.Color(0x2563eb); // Primary Blue
+    const color2 = new THREE.Color(0x38bdf8); // Cyan Accent
+
+    for (let i = 0; i < particleCount * 3; i += 3) {
+      positions[i] = (Math.random() - 0.5) * 100;
+      positions[i + 1] = (Math.random() - 0.5) * 100;
+      positions[i + 2] = (Math.random() - 0.5) * 100;
+
+      const mixedColor = color1.clone().lerp(color2, Math.random());
+      colors[i] = mixedColor.r;
+      colors[i + 1] = mixedColor.g;
+      colors[i + 2] = mixedColor.b;
+    }
+
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+    const particlesMaterial = new THREE.PointsMaterial({
+      size: 1.2,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.6,
+      blending: THREE.AdditiveBlending
+    });
+
+    const particleSystem = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particleSystem);
+
+    // 4. Mouse Interactive Parallax Tracking
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetX = 0;
+    let targetY = 0;
+
+    const windowHalfX = window.innerWidth / 2;
+    const windowHalfY = window.innerHeight / 2;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = (e.clientX - windowHalfX) * 0.01;
+      mouseY = (e.clientY - windowHalfY) * 0.01;
+    });
+
+    // 5. 3D Render Loop
+    function animate3D() {
+      requestAnimationFrame(animate3D);
+
+      // Smooth camera parallax easing
+      targetX += (mouseX - targetX) * 0.05;
+      targetY += (mouseY - targetY) * 0.05;
+
+      camera.position.x = targetX;
+      camera.position.y = -targetY;
+      camera.lookAt(scene.position);
+
+      // Continuous 3D Core Rotation
+      torusKnot.rotation.x += 0.003;
+      torusKnot.rotation.y += 0.005;
+      particleSystem.rotation.y += 0.001;
+
+      renderer.render(scene, camera);
+    }
+    animate3D();
+
+    // 6. Handle Window Resizing
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  }
+
+  initThreeJS();
+
+  // ===== VANILLA TILT 3D CARD INITIALIZATION =====
+  if (typeof VanillaTilt !== 'undefined') {
+    VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
+      max: 15,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.2,
+      scale: 1.02
+    });
+  }
 
   // ===== TOP SCROLL PROGRESS BAR & NAVBAR =====
   const scrollProgress = document.getElementById('scrollProgress');
@@ -108,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ===== TYPING ANIMATION =====
-  const words = ['Data Analytics', 'Python ETL & Automation', 'Power BI & DAX', 'Machine Learning Models'];
+  const words = ['Data Analytics & 3D Web', 'Python ETL & Automation', 'Power BI & DAX', 'Machine Learning Models'];
   let wordIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
@@ -186,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
         borderWidth: 2,
         borderColor: '#0F172A'
       }],
-      insight: '<strong>ChurnGuard Insight:</strong> Random Forest model flags customer churn risk with 94.2% precision, enabling targeted retention campaigns before contract expiry.'
+      insight: '<strong>ChurnGuard 3D Insight:</strong> Random Forest model flags customer churn risk with 94.2% precision, enabling targeted retention campaigns before contract expiry.'
     },
     sales: {
       type: 'line',
@@ -565,38 +689,5 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-
-  // ===== DYNAMIC CARD MOUSE LIGHTING EFFECT =====
-  document.querySelectorAll('.project-card, .cert-card, .achievement-card, .about-card, .terminal-window').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      card.style.setProperty('--mouse-x', `${x}%`);
-      card.style.setProperty('--mouse-y', `${y}%`);
-    });
-  });
-
-  // ===== HERO BACKGROUND PARTICLES =====
-  function initParticles() {
-    const container = document.getElementById('particles');
-    if (!container) return;
-    for (let i = 0; i < 28; i++) {
-      const p = document.createElement('div');
-      p.className = 'particle';
-      const size = Math.random() * 4 + 2;
-      p.style.cssText = `
-        width: ${size}px;
-        height: ${size}px;
-        left: ${Math.random() * 100}%;
-        bottom: -10px;
-        animation-duration: ${Math.random() * 10 + 5}s;
-        animation-delay: ${Math.random() * 5}s;
-        opacity: ${Math.random() * 0.45 + 0.15};
-      `;
-      container.appendChild(p);
-    }
-  }
-  initParticles();
 
 });

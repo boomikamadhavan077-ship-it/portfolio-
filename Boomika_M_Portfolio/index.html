@@ -3,26 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Boomika M – Aspiring Data Analyst, AI & Data Science Student, Python Developer. Professional portfolio showcasing projects, skills, and certifications." />
-  <meta name="keywords" content="Boomika M, Data Analyst, AI, Data Science, Python Developer, Portfolio, Machine Learning" />
+  <meta name="description" content="Boomika M – Aspiring Data Analyst, AI & Data Science Student, Python Developer. Professional portfolio showcasing projects, skills, certifications, and experience." />
+  <meta name="keywords" content="Boomika M, Data Analyst, AI, Data Science, Python Developer, Power BI, Machine Learning, Portfolio, SQL, Full Stack" />
   <meta name="author" content="Boomika M" />
-  <!-- Open Graph -->
+
+  <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content="Boomika M | AI & Data Science Portfolio" />
   <meta property="og:description" content="Aspiring Data Analyst | AI & Data Science Student | Python Developer" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://boomika-portfolio.web.app" />
+
   <title>Boomika M | AI & Data Science Portfolio</title>
+
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
-  <!-- Icons -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet" />
+  
+  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
+  <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/animations.css" />
 
-  <!-- ✅ ADDED: EmailJS -->
+  <!-- EmailJS Integration -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>emailjs.init("JVYyJ0qNrtg8j4Vfr");</script>
 </head>
@@ -41,6 +49,7 @@
 <nav class="navbar" id="navbar">
   <div class="nav-container">
     <a href="#home" class="nav-logo">BOOMIKA<span>.M</span></a>
+    
     <ul class="nav-links" id="navLinks">
       <li><a href="#home" class="nav-link active">Home</a></li>
       <li><a href="#about" class="nav-link">About</a></li>
@@ -52,7 +61,12 @@
       <li><a href="#resume" class="nav-link">Resume</a></li>
       <li><a href="#contact" class="nav-link">Contact</a></li>
     </ul>
+
     <div class="nav-actions">
+      <div class="status-indicator" title="Available for Roles & Internships">
+        <span class="status-dot"></span>
+        <span class="status-text">Available</span>
+      </div>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
         <i class="fas fa-sun" id="themeIcon"></i>
       </button>
@@ -63,189 +77,277 @@
   </div>
 </nav>
 
-<!-- ========== HERO ========== -->
+<!-- ========== HERO SECTION ========== -->
 <section class="hero" id="home">
   <div class="hero-bg">
     <div class="hero-particle" id="particles"></div>
   </div>
+
   <div class="hero-container">
     <div class="hero-text" data-aos="fade-right">
-      <p class="hero-greeting">👋 Hello, I'm</p>
+      <div class="badge-tag"><i class="fas fa-sparkles"></i> AI & Data Science Specialist</div>
       <h1 class="hero-name">BOOMIKA M</h1>
+      
       <div class="hero-title-wrapper">
-        <span class="hero-title-static">I'm a </span>
+        <span class="hero-title-static">I am a </span>
         <span class="hero-typed" id="typedText"></span>
         <span class="cursor">|</span>
       </div>
+
       <p class="hero-bio">
-        A B.Tech Artificial Intelligence and Data Science student passionate about
-        <strong>Data Analytics</strong>, <strong>Python Development</strong>,
-        <strong>AI Solutions</strong>, and <strong>Full Stack Web Development</strong>.
-        I enjoy building real-world projects and transforming data into actionable insights.
+        B.Tech Artificial Intelligence and Data Science student passionate about 
+        <strong>Data Analytics</strong>, <strong>Machine Learning Solutions</strong>, 
+        <strong>Python Automation</strong>, and <strong>Full-Stack Development</strong>. 
+        Dedicated to turning complex data into actionable business intelligence and building scalable intelligent apps.
       </p>
+
       <div class="hero-buttons">
-        <a href="RESUME.PDF" class="btn btn-primary" id="downloadResumeBtn">
-          <i class="fas fa-download"></i> Download Resume
+        <a href="RESUME.PDF" download class="btn btn-primary" id="downloadResumeBtn">
+          <i class="fas fa-file-arrow-down"></i> Download Resume
         </a>
-        <a href="#contact" class="btn btn-outline">
-          <i class="fas fa-envelope"></i> Contact Me
+        <a href="#projects" class="btn btn-outline">
+          <i class="fas fa-layer-group"></i> View Projects
         </a>
-        <a href="#projects" class="btn btn-ghost">
-          <i class="fas fa-code"></i> View Projects
+        <a href="#contact" class="btn btn-ghost">
+          <i class="fas fa-paper-plane"></i> Contact Me
         </a>
       </div>
+
       <div class="hero-socials">
-        <a href="https://www.linkedin.com/in/boomika-m-734210376" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/boomikamadhavan077-ship-it" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="mailto:boomikamadhavan077@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/boomika-m-734210376" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/boomikamadhavan077-ship-it" target="_blank" rel="noopener" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:boomikamadhavan077@gmail.com" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
       </div>
     </div>
+
     <div class="hero-image" data-aos="fade-left">
       <div class="hero-img-wrapper">
         <div class="hero-img-ring ring-1"></div>
         <div class="hero-img-ring ring-2"></div>
         <div class="hero-img-ring ring-3"></div>
         <div class="hero-avatar">
-        <img src="my photo.jpeg" alt="Boomika M" />
+          <img src="my photo.jpeg" alt="Boomika M" />
         </div>
       </div>
-      <div class="hero-badge badge-1"><i class="fab fa-python"></i> Python</div>
-      <div class="hero-badge badge-2"><i class="fas fa-chart-bar"></i> Data Analytics</div>
-      <div class="hero-badge badge-3"><i class="fas fa-brain"></i> AI / ML</div>
+
+      <!-- Floating Tech Badges -->
+      <div class="hero-badge badge-1"><i class="fab fa-python"></i> Python Dev</div>
+      <div class="hero-badge badge-2"><i class="fas fa-chart-pie"></i> Data Analytics</div>
+      <div class="hero-badge badge-3"><i class="fas fa-brain"></i> AI & ML</div>
+      <div class="hero-badge badge-4"><i class="fas fa-database"></i> Power BI & SQL</div>
     </div>
   </div>
+
   <div class="hero-stats">
     <div class="stat-item">
-      <span class="stat-num" data-target="10">0</span><span>+</span>
+      <div class="stat-num-wrapper">
+        <span class="stat-num" data-target="10">0</span><span class="plus">+</span>
+      </div>
       <p>Certifications</p>
     </div>
     <div class="stat-item">
-      <span class="stat-num" data-target="5">0</span><span>+</span>
-      <p>Projects</p>
+      <div class="stat-num-wrapper">
+        <span class="stat-num" data-target="5">0</span><span class="plus">+</span>
+      </div>
+      <p>Projects Built</p>
     </div>
     <div class="stat-item">
-      <span class="stat-num" data-target="2">0</span><span></span>
+      <div class="stat-num-wrapper">
+        <span class="stat-num" data-target="3">0</span><span class="plus">+</span>
+      </div>
       <p>Internships</p>
     </div>
     <div class="stat-item">
-      <span class="stat-num" data-target="15">0</span><span>+</span>
-      <p>Technologies</p>
+      <div class="stat-num-wrapper">
+        <span class="stat-num" data-target="15">0</span><span class="plus">+</span>
+      </div>
+      <p>Tech Stack & Tools</p>
     </div>
   </div>
 </section>
 
-<!-- ========== ABOUT ========== -->
+<!-- ========== ABOUT SECTION ========== -->
 <section class="section" id="about">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
       <p class="section-label">Who Am I</p>
       <h2 class="section-title">About Me</h2>
     </div>
+
     <div class="about-grid">
       <div class="about-card glass" data-aos="fade-up" data-aos-delay="100">
         <div class="about-icon"><i class="fas fa-graduation-cap"></i></div>
         <h3>Education</h3>
         <p class="about-degree">B.Tech – Artificial Intelligence & Data Science</p>
-        <p class="about-institution">Currently Pursuing</p>
+        <p class="about-institution"><i class="fas fa-university"></i> Currently Pursuing</p>
         <ul class="about-list">
-          <li><i class="fas fa-check-circle"></i> AI & Machine Learning Fundamentals</li>
+          <li><i class="fas fa-check-circle"></i> AI & Machine Learning Algorithms</li>
           <li><i class="fas fa-check-circle"></i> Data Structures & Algorithms</li>
-          <li><i class="fas fa-check-circle"></i> Statistical Analysis & Modeling</li>
-          <li><i class="fas fa-check-circle"></i> Database Management Systems</li>
+          <li><i class="fas fa-check-circle"></i> Statistical Modeling & Exploratory Data Analysis</li>
+          <li><i class="fas fa-check-circle"></i> Database Systems & Data Warehousing</li>
         </ul>
       </div>
+
       <div class="about-card glass" data-aos="fade-up" data-aos-delay="200">
         <div class="about-icon"><i class="fas fa-bullseye"></i></div>
         <h3>Career Objective</h3>
         <p class="about-text">
-          Seeking opportunities in <strong>Data Analytics</strong>, <strong>Business Intelligence</strong>,
-          <strong>AI</strong>, and <strong>Software Development</strong> where I can apply analytical
-          thinking and technical skills to solve real-world problems and drive meaningful impact.
+          Seeking challenging opportunities in <strong>Data Analytics</strong>, <strong>Business Intelligence</strong>, 
+          <strong>AI Engineering</strong>, and <strong>Software Development</strong> where I can leverage my problem-solving skills, 
+          data manipulation capabilities, and technical acumen to deliver high-impact business solutions.
         </p>
       </div>
+
       <div class="about-card glass" data-aos="fade-up" data-aos-delay="300">
-        <div class="about-icon"><i class="fas fa-heart"></i></div>
-        <h3>Technical Interests</h3>
+        <div class="about-icon"><i class="fas fa-lightbulb"></i></div>
+        <h3>Technical Focus & Passion</h3>
+        <p class="about-text" style="margin-bottom:1rem;">
+          Specializing in end-to-end data workflows: from data extraction and cleaning to statistical modeling, ML deployment, and interactive Power BI dashboards.
+        </p>
         <div class="interest-tags">
           <span class="tag">Data Analytics</span>
           <span class="tag">Machine Learning</span>
-          <span class="tag">Python Programming</span>
-          <span class="tag">Data Visualization</span>
-          <span class="tag">Business Intelligence</span>
-          <span class="tag">Full Stack Dev</span>
+          <span class="tag">Python</span>
           <span class="tag">Power BI</span>
+          <span class="tag">SQL & Databases</span>
+          <span class="tag">Business Intelligence</span>
+          <span class="tag">Full-Stack Web</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== SKILLS ========== -->
+<!-- ========== SKILLS SECTION ========== -->
 <section class="section section-alt" id="skills">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <p class="section-label">What I Know</p>
-      <h2 class="section-title">Technical Skills</h2>
+      <p class="section-label">Technical Expertise</p>
+      <h2 class="section-title">My Skills</h2>
     </div>
-    <div class="skills-grid">
 
-      <div class="skill-category glass" data-aos="fade-up" data-aos-delay="100">
+    <!-- Skill Category Filter Buttons -->
+    <div class="filter-controls" data-aos="fade-up">
+      <button class="filter-btn active" data-filter="all">All Skills</button>
+      <button class="filter-btn" data-filter="programming">Programming</button>
+      <button class="filter-btn" data-filter="analytics">Data & Analytics</button>
+      <button class="filter-btn" data-filter="tools">Databases & Tools</button>
+    </div>
+
+    <div class="skills-grid">
+      <!-- Programming -->
+      <div class="skill-category glass" data-category="programming" data-aos="fade-up" data-aos-delay="100">
         <div class="skill-cat-header">
           <i class="fas fa-code"></i>
-          <h3>Programming</h3>
+          <h3>Programming Languages</h3>
         </div>
-        <div class="skill-item"><div class="skill-info"><span>Python</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
-        <div class="skill-item"><div class="skill-info"><span>JavaScript</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" data-width="80"></div></div></div>
-        <div class="skill-item"><div class="skill-info"><span>SQL</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></div>
-        <div class="skill-item"><div class="skill-info"><span>HTML</span><span>92%</span></div><div class="skill-bar"><div class="skill-fill" data-width="92"></div></div></div>
-        <div class="skill-item"><div class="skill-info"><span>CSS</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" data-width="88"></div></div></div>
-        <div class="skill-item"><div class="skill-info"><span>C Programming</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
+        <div class="skill-item">
+          <div class="skill-info"><span><i class="fab fa-python"></i> Python</span><span>90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-info"><span><i class="fas fa-database"></i> SQL</span><span>85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-info"><span><i class="fab fa-js"></i> JavaScript</span><span>80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-info"><span><i class="fab fa-html5"></i> HTML5 & CSS3</span><span>90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-info"><span><i class="fas fa-c"></i> C Programming</span><span>88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+        </div>
       </div>
 
-      <div class="skill-category glass" data-aos="fade-up" data-aos-delay="200">
+      <!-- Data Analytics -->
+      <div class="skill-category glass" data-category="analytics" data-aos="fade-up" data-aos-delay="200">
         <div class="skill-cat-header">
           <i class="fas fa-chart-pie"></i>
-          <h3>Data Analytics</h3>
+          <h3>Data Analytics & ML</h3>
         </div>
-        <div class="skill-item"><div class="skill-info"><span>Power BI</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></div>
-        <div class="skill-item"><div class="skill-info"><span>Excel</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" data-width="88"></div></div></div>
-        <div class="skill-item"><div class="skill-info"><span>Pandas</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
-        <div class="skill-item"><div class="skill-info"><span>NumPy</span><span>87%</span></div><div class="skill-bar"><div class="skill-fill" data-width="87"></div></div></div>
-        <div class="skill-item"><div class="skill-info"><span>Data Visualization</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></div>
+        <div class="skill-item">
+          <div class="skill-info"><span><i class="fas fa-chart-bar"></i> Power BI & Dashboards</span><span>88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-info"><span><i class="fas fa-file-excel"></i> Advanced Excel</span><span>90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-info"><span><i class="fas fa-cubes"></i> Pandas & NumPy</span><span>90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-info"><span><i class="fas fa-brain"></i> Machine Learning (Scikit-Learn)</span><span>82%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-info"><span><i class="fas fa-chart-line"></i> Exploratory Data Analysis (EDA)</span><span>88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+        </div>
       </div>
 
-      <div class="skill-category glass" data-aos="fade-up" data-aos-delay="300">
+      <!-- Databases & Cloud Tools -->
+      <div class="skill-category glass" data-category="tools" data-aos="fade-up" data-aos-delay="300">
         <div class="skill-cat-header">
-          <i class="fas fa-database"></i>
-          <h3>Database & Tools</h3>
+          <i class="fas fa-server"></i>
+          <h3>Databases & Cloud Tools</h3>
         </div>
-        <div class="skill-item"><div class="skill-info"><span>Firebase</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" data-width="80"></div></div></div>
-        <div class="skill-item"><div class="skill-info"><span>MySQL</span><span>82%</span></div><div class="skill-bar"><div class="skill-fill" data-width="82"></div></div></div>
-        <div class="skill-item"><div class="skill-info"><span>Git & GitHub</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></div>
-        <div class="skill-item"><div class="skill-info"><span>VS Code</span><span>92%</span></div><div class="skill-bar"><div class="skill-fill" data-width="92"></div></div></div>
+        <div class="skill-item">
+          <div class="skill-info"><span><i class="fas fa-fire"></i> Firebase Firestore</span><span>85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-info"><span><i class="fas fa-database"></i> MySQL</span><span>85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-info"><span><i class="fab fa-git-alt"></i> Git & GitHub</span><span>88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-info"><span><i class="fas fa-code-branch"></i> VS Code & Jupyter</span><span>92%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+        </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ========== PROJECTS ========== -->
+<!-- ========== PROJECTS SECTION ========== -->
 <section class="section" id="projects">
   <div class="container">
-
     <div class="section-header" data-aos="fade-up">
       <p class="section-label">What I've Built</p>
       <h2 class="section-title">Featured Projects</h2>
     </div>
 
+    <!-- Project Filter Buttons -->
+    <div class="filter-controls" data-aos="fade-up">
+      <button class="project-filter-btn active" data-pfilter="all">All Projects</button>
+      <button class="project-filter-btn" data-pfilter="analytics">Data & BI</button>
+      <button class="project-filter-btn" data-pfilter="ml">Machine Learning</button>
+      <button class="project-filter-btn" data-pfilter="web">Web & Apps</button>
+    </div>
+
     <div class="projects-grid">
 
-      <!-- End-to-End Business Intelligence System -->
-      <div class="project-card glass" data-aos="fade-up" data-aos-delay="100">
+      <!-- Project 1: BI System -->
+      <div class="project-card glass" data-pcategory="analytics web" data-aos="fade-up" data-aos-delay="100">
         <div class="project-img">
           <i class="fas fa-chart-pie"></i>
+          <span class="project-type-badge">Data Analytics & BI</span>
         </div>
-
         <div class="project-content">
           <div class="project-tags">
             <span class="ptag">Python</span>
@@ -253,89 +355,71 @@
             <span class="ptag">Power BI</span>
             <span class="ptag">Firebase</span>
           </div>
-
           <h3>End-to-End Business Intelligence System</h3>
-
           <p>
-            Built a complete Business Intelligence solution that collects, cleans,
-            stores, analyzes, and visualizes business data. Automated ETL pipelines
-            and created dashboards for data-driven decision making.
+            Built a comprehensive BI platform that ingests, cleanses, stores, and visualizes enterprise data with automated ETL pipelines and interactive decision-making dashboards.
           </p>
-
           <ul class="project-features">
-            <li><i class="fas fa-check"></i> Automated ETL Pipeline</li>
-            <li><i class="fas fa-check"></i> SQL & Firebase Integration</li>
-            <li><i class="fas fa-check"></i> Business KPI Monitoring</li>
-            <li><i class="fas fa-check"></i> Interactive Analytics Dashboard</li>
+            <li><i class="fas fa-check"></i> Automated ETL Data Pipeline</li>
+            <li><i class="fas fa-check"></i> Real-time Firebase & SQL Integration</li>
+            <li><i class="fas fa-check"></i> Executive KPI Monitoring Dashboard</li>
           </ul>
-
           <div class="project-actions">
-            <a href="https://bi-system-ezft.onrender.com/"
-               target="_blank"
-               class="btn-sm btn-primary">
+            <a href="https://bi-system-ezft.onrender.com/" target="_blank" rel="noopener" class="btn-sm btn-primary-sm">
               <i class="fas fa-external-link-alt"></i> Live Demo
             </a>
-
-            <a href="https://github.com/boomikamadhavan077-ship-it/bi-system"
-               target="_blank"
-               class="btn-sm btn-outline-sm">
-              <i class="fab fa-github"></i> GitHub
+            <a href="https://github.com/boomikamadhavan077-ship-it/bi-system" target="_blank" rel="noopener" class="btn-sm btn-outline-sm">
+              <i class="fab fa-github"></i> Code
             </a>
+            <button class="btn-sm btn-ghost-sm" onclick="openProjectModal('End-to-End Business Intelligence System', 'Automated ETL pipeline integrating Python, SQL, and Firebase with real-time Power BI reporting. Processes large volumes of transactional data, calculates automated business KPIs, and renders executive dashboard insights.', ['Python', 'SQL', 'Power BI', 'Firebase', 'ETL'], 'https://bi-system-ezft.onrender.com/', 'https://github.com/boomikamadhavan077-ship-it/bi-system')">
+              <i class="fas fa-info-circle"></i> Details
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Customer Churn Prediction -->
-      <div class="project-card glass" data-aos="fade-up" data-aos-delay="150">
+      <!-- Project 2: Customer Churn Prediction -->
+      <div class="project-card glass" data-pcategory="ml" data-aos="fade-up" data-aos-delay="150">
         <div class="project-img">
           <i class="fas fa-user-minus"></i>
+          <span class="project-type-badge">Machine Learning</span>
         </div>
-
         <div class="project-content">
           <div class="project-tags">
             <span class="ptag">Python</span>
-            <span class="ptag">Machine Learning</span>
+            <span class="ptag">Scikit-Learn</span>
             <span class="ptag">Random Forest</span>
             <span class="ptag">Flask</span>
           </div>
-
-          <h3>Customer Churn Prediction</h3>
-
+          <h3>Customer Churn Prediction (ChurnGuard)</h3>
           <p>
-            Developed a machine learning model to predict customer churn and identify
-            customers likely to leave a business. Built using Random Forest with
-            data preprocessing, feature engineering, model evaluation, and deployment.
+            Developed a predictive machine learning web application using Random Forest classification to identify at-risk customers and reduce business churn rate.
           </p>
-
           <ul class="project-features">
-            <li><i class="fas fa-check"></i> Customer Retention Analysis</li>
-            <li><i class="fas fa-check"></i> Random Forest Classification</li>
-            <li><i class="fas fa-check"></i> Data Cleaning & Feature Engineering</li>
-            <li><i class="fas fa-check"></i> Web App Deployment</li>
+            <li><i class="fas fa-check"></i> High Precision Customer Risk Scoring</li>
+            <li><i class="fas fa-check"></i> Feature Engineering & EDA</li>
+            <li><i class="fas fa-check"></i> Deployed Flask Web Application API</li>
           </ul>
-
           <div class="project-actions">
-            <a href="https://boomika.pythonanywhere.com/"
-               target="_blank"
-               class="btn-sm btn-primary">
+            <a href="https://boomika.pythonanywhere.com/" target="_blank" rel="noopener" class="btn-sm btn-primary-sm">
               <i class="fas fa-external-link-alt"></i> Live Demo
             </a>
-
-            <a href="https://github.com/boomikamadhavan077-ship-it/churnguard"
-               target="_blank"
-               class="btn-sm btn-outline-sm">
-              <i class="fab fa-github"></i> GitHub
+            <a href="https://github.com/boomikamadhavan077-ship-it/churnguard" target="_blank" rel="noopener" class="btn-sm btn-outline-sm">
+              <i class="fab fa-github"></i> Code
             </a>
+            <button class="btn-sm btn-ghost-sm" onclick="openProjectModal('Customer Churn Prediction (ChurnGuard)', 'Machine learning web platform deployed on PythonAnywhere. Utilizes Random Forest classification model trained on customer telemetry and subscription data to accurately identify churn risk factors and recommend retention strategies.', ['Python', 'Machine Learning', 'Random Forest', 'Flask', 'Pandas'], 'https://boomika.pythonanywhere.com/', 'https://github.com/boomikamadhavan077-ship-it/churnguard')">
+              <i class="fas fa-info-circle"></i> Details
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Sales Forecasting using Machine Learning & Power BI -->
-      <div class="project-card glass" data-aos="fade-up" data-aos-delay="200">
+      <!-- Project 3: Sales Forecasting -->
+      <div class="project-card glass" data-pcategory="analytics ml" data-aos="fade-up" data-aos-delay="200">
         <div class="project-img">
           <i class="fas fa-chart-line"></i>
+          <span class="project-type-badge">Predictive Analytics</span>
         </div>
-
         <div class="project-content">
           <div class="project-tags">
             <span class="ptag">Machine Learning</span>
@@ -343,154 +427,182 @@
             <span class="ptag">Power BI</span>
             <span class="ptag">Forecasting</span>
           </div>
-
-          <h3>Sales Forecasting using Machine Learning & Power BI</h3>
-
+          <h3>Sales Forecasting via ML & Power BI</h3>
           <p>
-            Developed a predictive analytics solution to forecast future sales trends
-            using historical business data. Integrated machine learning predictions
-            with Power BI dashboards for strategic business planning.
+            Designed a predictive analytics pipeline to forecast future sales trends using time-series analysis and historical data, integrated into an interactive Power BI dashboard.
           </p>
-
           <ul class="project-features">
-            <li><i class="fas fa-check"></i> Sales Trend Prediction</li>
-            <li><i class="fas fa-check"></i> Forecast Accuracy Analysis</li>
-            <li><i class="fas fa-check"></i> Interactive Power BI Dashboard</li>
-            <li><i class="fas fa-check"></i> Business Decision Support</li>
+            <li><i class="fas fa-check"></i> Historical Sales Trend Analysis</li>
+            <li><i class="fas fa-check"></i> Machine Learning Time-Series Model</li>
+            <li><i class="fas fa-check"></i> Interactive Power BI Strategic Visuals</li>
           </ul>
-
           <div class="project-actions">
-            <a href="#" class="btn-sm btn-outline-sm">
-              <i class="fas fa-clock"></i> Coming Soon
+            <a href="https://github.com/boomikamadhavan077-ship-it" target="_blank" rel="noopener" class="btn-sm btn-outline-sm">
+              <i class="fab fa-github"></i> Explore GitHub
             </a>
+            <button class="btn-sm btn-ghost-sm" onclick="openProjectModal('Sales Forecasting using ML & Power BI', 'Predictive machine learning time-series project forecasting quarterly sales demand. Features model evaluation metrics (RMSE, MAE), data preparation scripts, and Power BI interactive reports for business decision support.', ['Python', 'Power BI', 'Time Series', 'Pandas', 'Scikit-Learn'], '#', 'https://github.com/boomikamadhavan077-ship-it')">
+              <i class="fas fa-info-circle"></i> Details
+            </button>
           </div>
         </div>
       </div>
 
     </div>
 
-  </div>
-   
-  <!-- Explore More Projects -->
-<div class="explore-projects" data-aos="fade-up">
-    <h3>Want to See More Projects?</h3>
-    <p>
-        Explore my complete collection of AI, Machine Learning,
-        Data Analytics, Business Intelligence, and Dashboard projects.
-    </p>
-
-    <a href="https://github.com/boomikamadhavan077-ship-it"
-       target="_blank"
-       class="explore-btn">
-        <i class="fab fa-github"></i>
-        View All Projects on GitHub
-    </a>
-</div>
+    <!-- Explore More Projects CTA -->
+    <div class="explore-projects glass" data-aos="fade-up">
+      <div class="explore-content">
+        <h3><i class="fab fa-github"></i> Want to See More Projects?</h3>
+        <p>Explore my full repository of AI models, Data Analytics notebooks, Power BI dashboards, and Web solutions on GitHub.</p>
+        <a href="https://github.com/boomikamadhavan077-ship-it" target="_blank" rel="noopener" class="explore-btn">
+          <i class="fab fa-github"></i> View All Projects on GitHub
+        </a>
+      </div>
+    </div>
 
     <!-- Future AI Projects -->
     <div class="future-projects" data-aos="fade-up">
-      <h3><i class="fas fa-rocket"></i> Future AI Projects</h3>
+      <h3><i class="fas fa-rocket"></i> Upcoming AI & Data Solutions</h3>
       <div class="future-grid">
-        <div class="future-card">
-          <i class="fas fa-shield-alt"></i>
-          <h4>Smart Vendor App</h4>
-          <p>An AI-powered inventory and sales management platform that helps small vendors predict stock demand, track profits, and optimize business decisions.</p>
-          <span class="status-badge">Coming Soon</span>
+        <div class="future-card glass">
+          <i class="fas fa-store"></i>
+          <h4>Smart Vendor AI App</h4>
+          <p>An intelligent inventory & sales management platform helping small vendors predict product demand and optimize stock levels using AI.</p>
+          <span class="status-badge">In Development</span>
         </div>
-        <div class="future-card">
-          <i class="fas fa-filter"></i>
-          <h4>AI-Powered Medical Report Risk Scoring & Early Warning System</h4>
-          <p>An intelligent healthcare solution that analyzes medical reports to assess patient risk levels and provide early disease warning alerts.</p>
-          <span class="status-badge">In Planning</span>
+        <div class="future-card glass">
+          <i class="fas fa-heartbeat"></i>
+          <h4>Medical Risk Scoring System</h4>
+          <p>An AI solution analyzing clinical diagnostic reports to compute automated risk scores and issue early health warning alerts.</p>
+          <span class="status-badge">Planning Phase</span>
         </div>
-        <div class="future-card">
-          <i class="fas fa-boxes"></i>
-          <h4>DNA-Based Encoding and Pattern Analysis</h4>
-          <p>A bioinformatics system that uses DNA sequence encoding techniques and AI-driven pattern analysis for efficient biological data processing and insights discovery.</p>
-          <span class="status-badge">In Planning</span>
+        <div class="future-card glass">
+          <i class="fas fa-dna"></i>
+          <h4>DNA Encoding & Pattern Analysis</h4>
+          <p>A bioinformatics project utilizing DNA sequence encoding and machine learning for biological pattern discovery.</p>
+          <span class="status-badge">Research Phase</span>
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- ========== CERTIFICATIONS ========== -->
+<!-- Project Detail Modal -->
+<div class="modal-overlay" id="projectModal" onclick="closeProjectModal()">
+  <div class="modal-box glass" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeProjectModal()"><i class="fas fa-times"></i></button>
+    <div class="modal-header-icon"><i class="fas fa-laptop-code"></i></div>
+    <h3 id="pModalTitle">Project Title</h3>
+    <div class="project-tags" id="pModalTags" style="justify-content:center; margin-bottom:1rem;"></div>
+    <p id="pModalDesc"></p>
+    <div class="modal-actions" style="display:flex; justify-content:center; gap:1rem; margin-top:1.5rem;">
+      <a id="pModalDemoBtn" href="#" target="_blank" rel="noopener" class="btn btn-primary">
+        <i class="fas fa-external-link-alt"></i> Live Demo
+      </a>
+      <a id="pModalGithubBtn" href="#" target="_blank" rel="noopener" class="btn btn-outline">
+        <i class="fab fa-github"></i> GitHub Repo
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ========== CERTIFICATIONS SECTION ========== -->
 <section class="section section-alt" id="certifications">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <p class="section-label">My Credentials</p>
+      <p class="section-label">Verified Credentials</p>
       <h2 class="section-title">Certifications</h2>
     </div>
+
     <div class="cert-grid">
 
-      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="100" onclick="openCertModal('DSA Python', 'Data Structures & Algorithms in Python', 'Comprehensive course covering arrays, linked lists, trees, graphs, and dynamic programming in Python.', 'DSA.jpeg')">
+      <!-- DSA -->
+      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="100" onclick="openCertModal('DSA in Python', 'Data Structures & Algorithms in Python', 'Comprehensive course certification covering arrays, linked lists, stacks, queues, trees, graphs, and dynamic programming in Python.', 'DSA.jpeg')">
         <div class="cert-icon"><i class="fab fa-python"></i></div>
         <div class="cert-content">
           <h4>Data Structures & Algorithms</h4>
           <p>Python Programming</p>
           <span class="cert-badge">Programming</span>
         </div>
-        <div class="cert-hover"><i class="fas fa-eye"></i> View</div>
+        <div class="cert-hover"><i class="fas fa-eye"></i> View Certificate</div>
       </div>
 
-      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="200" onclick="openCertModal('Full Stack', 'Full Stack Development', 'Comprehensive full stack web development including frontend, backend, and database integration.','FSD.jpeg')">
+      <!-- Full Stack -->
+      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="150" onclick="openCertModal('Full Stack Web Dev', 'Full Stack Development', 'Comprehensive web development certification covering HTML5, CSS3, JavaScript, backend architecture, and database management.', 'FSD.jpeg')">
         <div class="cert-icon"><i class="fas fa-layer-group"></i></div>
         <div class="cert-content">
           <h4>Full Stack Development</h4>
           <p>Web Development</p>
           <span class="cert-badge">Development</span>
         </div>
-        <div class="cert-hover"><i class="fas fa-eye"></i> View</div>
+        <div class="cert-hover"><i class="fas fa-eye"></i> View Certificate</div>
       </div>
 
-      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="250" onclick="openCertModal('Tally', 'Tally Certification', 'Accounting and financial management using Tally ERP software.','TALLY.jpeg')">
+      <!-- Tally -->
+      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="200" onclick="openCertModal('Tally ERP', 'Tally Certification', 'Financial accounting, inventory management, and business taxation using Tally software.', 'TALLY.jpeg')">
         <div class="cert-icon"><i class="fas fa-calculator"></i></div>
         <div class="cert-content">
-          <h4>Tally</h4>
-          <p>Accounting Software</p>
+          <h4>Tally ERP</h4>
+          <p>Accounting & Finance</p>
           <span class="cert-badge">Finance</span>
         </div>
-        <div class="cert-hover"><i class="fas fa-eye"></i> View</div>
+        <div class="cert-hover"><i class="fas fa-eye"></i> View Certificate</div>
       </div>
 
-      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="300" onclick="openCertModal('PGDCA', 'Post Graduate Diploma in Computer Applications', 'Advanced computer applications covering programming, databases, and software development.','PGDCA2.jpeg')">
+      <!-- PGDCA -->
+      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="250" onclick="openCertModal('PGDCA', 'Post Graduate Diploma in Computer Applications', 'Advanced diploma covering computer architecture, programming languages, database design, and software applications.', 'PGDCA2.jpeg')">
         <div class="cert-icon"><i class="fas fa-university"></i></div>
         <div class="cert-content">
-          <h4>PGDCA</h4>
+          <h4>PGDCA Diploma</h4>
           <p>Computer Applications</p>
           <span class="cert-badge">Diploma</span>
         </div>
-        <div class="cert-hover"><i class="fas fa-eye"></i> View</div>
+        <div class="cert-hover"><i class="fas fa-eye"></i> View Certificate</div>
       </div>
 
-      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="350" onclick="openCertModal('Diploma', 'Diploma in Programming Languages', 'Multi-language programming diploma covering C, C++, Java, and Python.','DPL2.jpeg')">
+      <!-- DPL -->
+      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="300" onclick="openCertModal('Programming Languages', 'Diploma in Programming Languages', 'Multi-language programming diploma covering C, C++, Java, and Python core paradigms.', 'DPL2.jpeg')">
         <div class="cert-icon"><i class="fas fa-code"></i></div>
         <div class="cert-content">
           <h4>Programming Languages</h4>
           <p>Diploma Course</p>
           <span class="cert-badge">Diploma</span>
         </div>
-        <div class="cert-hover"><i class="fas fa-eye"></i> View</div>
+        <div class="cert-hover"><i class="fas fa-eye"></i> View Certificate</div>
       </div>
 
-      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="400" onclick="openCertModal('Power BI', 'Power BI Certification', 'Data visualization and business intelligence using Microsoft Power BI.')">
+      <!-- Internship Certificate 01 -->
+      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="350" onclick="openCertModal('Cognifyz Internship', 'Data Analyst Internship Certificate', 'Certificate of internship completion at Cognifyz Technologies demonstrating hands-on experience in data cleaning, exploratory analysis, and dashboard design.', 'internship certificate.jpeg')">
+        <div class="cert-icon"><i class="fas fa-briefcase"></i></div>
+        <div class="cert-content">
+          <h4>Data Analyst Internship</h4>
+          <p>Cognifyz Technologies</p>
+          <span class="cert-badge">Internship</span>
+        </div>
+        <div class="cert-hover"><i class="fas fa-eye"></i> View Certificate</div>
+      </div>
+
+      <!-- Internship Certificate 02 -->
+      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="400" onclick="openCertModal('RISE 3.0 Internship', 'Python Developer Internship Certificate', 'Certificate of completion for Python Development Internship at RISE 3.0 highlighting script automation, algorithmic problem solving, and project building.', 'internship certificate 02.jpeg')">
+        <div class="cert-icon"><i class="fab fa-python"></i></div>
+        <div class="cert-content">
+          <h4>Python Developer Internship</h4>
+          <p>RISE 3.0 Program</p>
+          <span class="cert-badge">Internship</span>
+        </div>
+        <div class="cert-hover"><i class="fas fa-eye"></i> View Certificate</div>
+      </div>
+
+      <!-- Power BI -->
+      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="450" onclick="openCertModal('Power BI Analytics', 'Power BI Data Analytics Certificate', 'Specialized course certification in Power BI dashboard design, DAX queries, and enterprise report visualization.')">
         <div class="cert-icon"><i class="fas fa-chart-bar"></i></div>
         <div class="cert-content">
-          <h4>Power BI</h4>
+          <h4>Power BI Data Analytics</h4>
           <p>Data Visualization</p>
           <span class="cert-badge">Analytics</span>
         </div>
-        <div class="cert-hover"><i class="fas fa-eye"></i> View</div>
-      </div>
-
-      <div class="cert-card glass" data-aos="fade-up" data-aos-delay="450" onclick="openCertModal('Internship', 'Internship Certificate', 'Certificate of completion for professional internship experiences in data analytics and Python development.','internship certificate.jpeg')">
-        <div class="cert-icon"><i class="fas fa-briefcase"></i></div>
-        <div class="cert-content">
-          <h4>Internship Certificates</h4>
-          <p>Professional Experience</p>
-          <span class="cert-badge">Experience</span>
-        </div>
-        <div class="cert-hover"><i class="fas fa-eye"></i> View</div>
+        <div class="cert-hover"><i class="fas fa-eye"></i> View Details</div>
       </div>
 
     </div>
@@ -510,24 +622,50 @@
     <h3 id="modalTitle"></h3>
     <p id="modalDesc"></p>
     <div class="modal-meta">
-      <span><i class="fas fa-user"></i> Boomika M</span>
-      <span><i class="fas fa-calendar"></i> 2023–2024</span>
+      <span><i class="fas fa-user-check"></i> Boomika M</span>
+      <span><i class="fas fa-shield-alt"></i> Verified Credential</span>
     </div>
-    <a id="certDownloadBtn" href="#" download class="btn btn-primary" style="margin-top:1rem;">
+    <a id="certDownloadBtn" href="#" download class="btn btn-primary" style="margin-top:1.25rem;">
       <i class="fas fa-download"></i> Download Certificate
     </a>
   </div>
 </div>
-<!-- ========== EXPERIENCE ========== -->
+
+<!-- ========== EXPERIENCE SECTION ========== -->
 <section class="section" id="experience">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <p class="section-label">Where I've Worked</p>
-      <h2 class="section-title">Experience</h2>
+      <p class="section-label">Where I've Worked & Learnt</p>
+      <h2 class="section-title">Professional Experience</h2>
     </div>
+
     <div class="timeline">
 
+      <!-- SyntacxHub -->
       <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card glass">
+          <div class="timeline-header">
+            <div>
+              <h3>Data Analyst Intern</h3>
+              <p class="timeline-company"><i class="fas fa-building"></i> SyntacxHub</p>
+            </div>
+            <span class="timeline-badge">Internship</span>
+          </div>
+          <div class="timeline-tags">
+            <span>SQL</span><span>Power BI</span><span>Excel</span><span>Python</span><span>Data Cleaning</span>
+          </div>
+          <ul class="timeline-tasks">
+            <li><i class="fas fa-chevron-right"></i> Processed, transformed, and structured complex datasets using Python, SQL, and Excel.</li>
+            <li><i class="fas fa-chevron-right"></i> Conducted Exploratory Data Analysis (EDA) to uncover trends, outliers, and business insights.</li>
+            <li><i class="fas fa-chevron-right"></i> Built interactive Power BI reports to communicate key performance metrics to management.</li>
+            <li><i class="fas fa-chevron-right"></i> Wrote optimized SQL queries for efficient data filtering and retrieval.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Cognifyz -->
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
         <div class="timeline-dot"></div>
         <div class="timeline-card glass">
           <div class="timeline-header">
@@ -538,222 +676,210 @@
             <span class="timeline-badge">Internship</span>
           </div>
           <div class="timeline-tags">
-            <span>Data Cleaning</span><span>Data Visualization</span><span>Analytics</span>
+            <span>Data Visualization</span><span>Analytics</span><span>Dashboard Design</span><span>Python</span>
           </div>
           <ul class="timeline-tasks">
-            <li><i class="fas fa-angle-right"></i> Cleaned and preprocessed large datasets for analysis</li>
-            <li><i class="fas fa-angle-right"></i> Created visual dashboards and interactive reports</li>
-            <li><i class="fas fa-angle-right"></i> Delivered analytics reports with actionable business insights</li>
-            <li><i class="fas fa-angle-right"></i> Collaborated with team on data-driven decision making</li>
+            <li><i class="fas fa-chevron-right"></i> Cleaned and preprocessed large raw datasets ensuring high data integrity.</li>
+            <li><i class="fas fa-chevron-right"></i> Formatted custom visual charts and dashboard panels for client analytics reports.</li>
+            <li><i class="fas fa-chevron-right"></i> Generated summary reports providing data-driven recommendations.</li>
           </ul>
         </div>
       </div>
 
+      <!-- RISE 3.0 -->
       <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
         <div class="timeline-dot"></div>
         <div class="timeline-card glass">
           <div class="timeline-header">
             <div>
-              <h3>Python Intern</h3>
+              <h3>Python Developer Intern</h3>
               <p class="timeline-company"><i class="fas fa-building"></i> RISE 3.0</p>
             </div>
             <span class="timeline-badge">Internship</span>
           </div>
           <div class="timeline-tags">
-            <span>Python</span><span>Problem Solving</span><span>Mini Projects</span>
+            <span>Python</span><span>Scripting</span><span>Data Handling</span><span>Agile</span>
           </div>
           <ul class="timeline-tasks">
-            <li><i class="fas fa-angle-right"></i> Developed Python scripts for automation and data processing</li>
-            <li><i class="fas fa-angle-right"></i> Solved algorithmic problems and coding challenges</li>
-            <li><i class="fas fa-angle-right"></i> Built mini projects applying core Python concepts</li>
-            <li><i class="fas fa-angle-right"></i> Collaborated in an agile development environment</li>
+            <li><i class="fas fa-chevron-right"></i> Created Python automation scripts for data file processing and file tasks.</li>
+            <li><i class="fas fa-chevron-right"></i> Solved core programming challenges using optimized algorithmic structures.</li>
+            <li><i class="fas fa-chevron-right"></i> Collaborated in an agile team setup using Git version control.</li>
           </ul>
         </div>
       </div>
-      
-      <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-  <div class="timeline-dot"></div>
-  <div class="timeline-card glass">
-    <div class="timeline-header">
-      <div>
-        <h3>Data Analyst Intern</h3>
-        <p class="timeline-company">
-          <i class="fas fa-building"></i> SyntacxHub
-        </p>
-      </div>
-      <span class="timeline-badge">Internship</span>
-    </div>
-
-    <div class="timeline-tags">
-      <span>Excel</span>
-      <span>SQL</span>
-      <span>Power BI</span>
-      <span>Python</span>
-      <span>Data Visualization</span>
-    </div>
-
-    <ul class="timeline-tasks">
-      <li><i class="fas fa-angle-right"></i> Collected, cleaned, and transformed datasets using Excel, SQL, and Python.</li>
-      <li><i class="fas fa-angle-right"></i> Performed exploratory data analysis (EDA) to identify trends and business insights.</li>
-      <li><i class="fas fa-angle-right"></i> Created interactive dashboards and reports using Power BI for data visualization.</li>
-      <li><i class="fas fa-angle-right"></i> Developed SQL queries to extract, filter, and analyze large datasets efficiently.</li>
-      <li><i class="fas fa-angle-right"></i> Generated actionable insights and presented findings to support data-driven decision making.</li>
-    </ul>
-  </div>
-  </div>
 
     </div>
   </div>
 </section>
 
-<!-- ========== ACHIEVEMENTS ========== -->
+<!-- ========== ACHIEVEMENTS SECTION ========== -->
 <section class="section section-alt" id="achievements">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <p class="section-label">My Wins</p>
+      <p class="section-label">Milestones & Wins</p>
       <h2 class="section-title">Achievements</h2>
     </div>
+
     <div class="achievements-grid">
       <div class="achievement-card glass" data-aos="fade-up" data-aos-delay="100">
         <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
         <h4>Diploma in Programming Languages</h4>
-        <p>Successfully completed a comprehensive diploma in multiple programming languages including C, C++, Java, and Python.</p>
+        <p>Successfully earned a specialized multi-language diploma mastering C, C++, Java, and Python fundamentals.</p>
       </div>
+
       <div class="achievement-card glass" data-aos="fade-up" data-aos-delay="150">
-        <div class="achievement-icon"><i class="fas fa-medal"></i></div>
-        <h4>PGDCA Certification</h4>
-        <p>Earned the Post Graduate Diploma in Computer Applications, covering advanced software development and management topics.</p>
+        <div class="achievement-icon"><i class="fas fa-award"></i></div>
+        <h4>PGDCA Advanced Qualification</h4>
+        <p>Completed Post Graduate Diploma in Computer Applications covering advanced software systems and database operations.</p>
       </div>
+
       <div class="achievement-card glass" data-aos="fade-up" data-aos-delay="200">
         <div class="achievement-icon"><i class="fas fa-certificate"></i></div>
-        <h4>Multiple Technical Certifications</h4>
-        <p>Earned 10+ technical certifications from recognized platforms covering Data Analytics, Power BI, Python, and Networking.</p>
+        <h4>10+ Tech Certifications</h4>
+        <p>Accredited with 10+ professional technical certificates in Data Analytics, Python, Power BI, and Web Development.</p>
       </div>
+
       <div class="achievement-card glass" data-aos="fade-up" data-aos-delay="250">
         <div class="achievement-icon"><i class="fas fa-briefcase"></i></div>
-        <h4>Internship Completion</h4>
-        <p>Successfully completed internships at Cognifyz Technologies (Data Analytics) and RISE 3.0 (Python Development).</p>
+        <h4>3 Internship Completons</h4>
+        <p>Demonstrated industry readiness across Data Analytics and Python software development roles.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== RESUME ========== -->
+<!-- ========== RESUME SECTION ========== -->
 <section class="section" id="resume">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <p class="section-label">My Resume</p>
-      <h2 class="section-title">Download CV</h2>
+      <p class="section-label">Curriculum Vitae</p>
+      <h2 class="section-title">Download Resume</h2>
     </div>
+
     <div class="resume-wrapper" data-aos="fade-up">
       <div class="resume-preview glass">
         <div class="resume-mock">
           <div class="resume-header-mock">
-            <div class="resume-name-mock">Boomika M</div>
-            <div class="resume-title-mock">AI & Data Science Student | Python Developer</div>
+            <div class="resume-name-mock">BOOMIKA M</div>
+            <div class="resume-title-mock">AI & Data Science Student | Data Analyst | Python Developer</div>
           </div>
           <div class="resume-body-mock">
-
             <div class="resume-section-mock">
-              <p style="color:#60a5fa; font-size:0.65rem; font-weight:700; margin:0 0 4px 0; text-transform:uppercase; letter-spacing:0.05em;">Education</p>
-              <p style="color:#e2e8f0; font-size:0.7rem; margin:2px 0;">B.Tech – Artificial Intelligence & Data Science</p>
-              <p style="color:#94a3b8; font-size:0.65rem; margin:2px 0;">Currently Pursuing</p>
+              <p class="resume-sec-title">Education</p>
+              <p class="resume-sec-text">B.Tech – Artificial Intelligence & Data Science</p>
             </div>
-
             <div class="resume-section-mock">
-              <p style="color:#60a5fa; font-size:0.65rem; font-weight:700; margin:6px 0 4px 0; text-transform:uppercase; letter-spacing:0.05em;">Skills</p>
-              <p style="color:#e2e8f0; font-size:0.65rem; margin:2px 0;">Python · SQL · JavaScript · HTML · CSS · C</p>
-              <p style="color:#94a3b8; font-size:0.65rem; margin:2px 0;">Power BI · Pandas · NumPy · MySQL · Firebase</p>
+              <p class="resume-sec-title">Key Skills</p>
+              <p class="resume-sec-text">Python · SQL · Power BI · Advanced Excel · Pandas · Scikit-Learn · MySQL · Firebase · Full Stack</p>
             </div>
-
-            
+            <div class="resume-section-mock">
+              <p class="resume-sec-title">Experience</p>
+              <p class="resume-sec-text">Data Analyst Intern (SyntacxHub, Cognifyz) | Python Intern (RISE 3.0)</p>
+            </div>
           </div>
         </div>
       </div>
+
       <div class="resume-info">
-        <h3>My Professional Resume</h3>
-        <p>My resume highlights my education, technical skills, project experience, and certifications — everything a recruiter needs to know about me at a glance.</p>
+        <h3>My Professional CV</h3>
+        <p>
+          My resume summarizes my academic background, technical skills, project portfolio, and internship experience. Perfect for recruiters and hiring managers.
+        </p>
+
         <div class="resume-stats">
           <div class="resume-stat">
             <i class="fas fa-download"></i>
-            <span id="downloadCount">0</span>
+            <span id="downloadCount">1</span>
             <p>Downloads</p>
           </div>
           <div class="resume-stat">
-            <i class="fas fa-eye"></i>
-            <span>—</span>
-            <p>Views</p>
+            <i class="fas fa-file-pdf"></i>
+            <span>PDF</span>
+            <p>Format</p>
           </div>
         </div>
+
         <a href="RESUME.PDF" download class="btn btn-primary" id="downloadResumeBtn2">
-          <i class="fas fa-download"></i> Download Resume (PDF)
+          <i class="fas fa-file-pdf"></i> Download Resume (PDF)
         </a>
       </div>
     </div>
   </div>
 </section>
-<!-- ========== CONTACT ========== -->
+
+<!-- ========== CONTACT SECTION ========== -->
 <section class="section section-alt" id="contact">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
       <p class="section-label">Get In Touch</p>
       <h2 class="section-title">Contact Me</h2>
     </div>
+
     <div class="contact-grid">
       <div class="contact-info" data-aos="fade-right">
-        <h3>Let's work together</h3>
-        <p>I'm open to internships, placement opportunities, collaborations, and freelance projects. Feel free to reach out!</p>
+        <h3>Let's Work Together</h3>
+        <p>I am open to full-time roles, internships, project collaborations, and freelance opportunities. Drop me a message and I'll get back to you promptly!</p>
+
         <div class="contact-items">
           <div class="contact-item">
             <div class="contact-icon"><i class="fas fa-envelope"></i></div>
             <div>
-              <p>Email</p>
+              <p>Email Address</p>
               <a href="mailto:boomikamadhavan077@gmail.com">boomikamadhavan077@gmail.com</a>
             </div>
           </div>
+
           <div class="contact-item">
-            <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+            <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
             <div>
-              <p>LinkedIn</p>
-              <a href="https://www.linkedin.com/in/boomika-m-734210376" target="_blank">linkedin.com/in/boomika-m</a>
+              <p>LinkedIn Profile</p>
+              <a href="https://www.linkedin.com/in/boomika-m-734210376" target="_blank" rel="noopener">linkedin.com/in/boomika-m</a>
             </div>
           </div>
+
           <div class="contact-item">
             <div class="contact-icon"><i class="fab fa-github"></i></div>
             <div>
-              <p>GitHub</p>
-              <a href="https://github.com/boomikamadhavan077-ship-it" target="_blank">github.com/boomikamadhavan077-ship-it</a>
+              <p>GitHub Profile</p>
+              <a href="https://github.com/boomikamadhavan077-ship-it" target="_blank" rel="noopener">github.com/boomikamadhavan077-ship-it</a>
             </div>
           </div>
         </div>
       </div>
+
       <div class="contact-form-wrapper" data-aos="fade-left">
         <form class="contact-form glass" id="contactForm" onsubmit="submitForm(event)">
           <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Your full name" required />
+            <label for="name"><i class="fas fa-user"></i> Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
           </div>
+
           <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+            <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
           </div>
+
           <div class="form-group">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" placeholder="Subject of your message" required />
+            <label for="subject"><i class="fas fa-tag"></i> Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Project / Job Opportunity" required />
           </div>
+
           <div class="form-group">
-            <label for="message">Message</label>
+            <label for="message"><i class="fas fa-comment-alt"></i> Message</label>
             <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
           </div>
+
           <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
             <span id="submitText"><i class="fas fa-paper-plane"></i> Send Message</span>
             <span id="submitLoading" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Sending...</span>
           </button>
+
           <div class="form-success" id="formSuccess" style="display:none;">
-            <i class="fas fa-check-circle"></i> Message sent successfully! I'll get back to you soon.
+            <i class="fas fa-check-circle"></i> Message sent successfully! I will reply to you soon.
           </div>
+
           <div class="form-error" id="formError" style="display:none;">
-            <i class="fas fa-exclamation-circle"></i> Something went wrong. Please try again.
+            <i class="fas fa-exclamation-circle"></i> Failed to send message. Please email directly.
           </div>
         </form>
       </div>
@@ -767,49 +893,51 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <span class="footer-logo">BOOMIKA<span>.M</span></span>
-        <p>Aspiring Data Analyst & AI enthusiast building impactful solutions through code and data.</p>
+        <p>Aspiring Data Analyst & AI Developer dedicated to building scalable data solutions and intelligent applications.</p>
         <div class="footer-socials">
-          <a href="https://www.linkedin.com/in/boomika-m-734210376" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/boomikamadhavan077-ship-it" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/boomika-m-734210376" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/boomikamadhavan077-ship-it" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
           <a href="mailto:boomikamadhavan077@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
+
       <div class="footer-links">
-        <h4>Quick Links</h4>
+        <h4>Navigation</h4>
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#experience">Experience</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
+
       <div class="footer-contact">
         <h4>Contact Info</h4>
         <p><i class="fas fa-envelope"></i> boomikamadhavan077@gmail.com</p>
-        <p><i class="fab fa-linkedin"></i> linkedin.com/in/boomika-m</p>
-        <p><i class="fab fa-github"></i> github.com/boomika-m</p>
+        <p><i class="fab fa-linkedin-in"></i> linkedin.com/in/boomika-m</p>
+        <p><i class="fab fa-github"></i> github.com/boomikamadhavan077-ship-it</p>
       </div>
     </div>
+
     <div class="footer-bottom">
-      <p>&copy; 2024 Boomika M. All rights reserved. | Designed with <i class="fas fa-heart" style="color:#ef4444;"></i> for impact.</p>
+      <p>&copy; 2026 Boomika M. All rights reserved. | Designed for High Impact.</p>
     </div>
   </div>
 </footer>
 
-<!-- Back to Top -->
+<!-- Back to Top Button -->
 <button class="back-to-top" id="backToTop" aria-label="Back to top">
   <i class="fas fa-chevron-up"></i>
 </button>
 
-<!-- Firebase SDK -->
+<!-- Firebase SDK Integration -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getFirestore, collection, addDoc, serverTimestamp, doc, getDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+  import { getFirestore, collection, addDoc, serverTimestamp, doc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-  // =============================================
-  //Firebase config
-  // =============================================
   const firebaseConfig = {
     apiKey: "AIzaSyBV-gjuuJzdl7v9MJkgmJR4Pi8X4OYQrTM",
     authDomain: "boomika-portfolio.firebaseapp.com",
@@ -823,11 +951,10 @@
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
-  // ✅ UPDATED: Contact form now sends email via EmailJS
   window.submitFormFirebase = async (data) => {
     let emailSent = false;
     try {
-            await emailjs.send("service_i61iqdu", "template_dcmbaun", {
+      await emailjs.send("service_i61iqdu", "template_dcmbaun", {
         from_name:  data.name,
         from_email: data.email,
         name:       data.name,
@@ -838,7 +965,7 @@
       });
       emailSent = true;
     } catch (e) {
-      console.error("EmailJS error:", e);
+      console.error("EmailJS dispatch error:", e);
     }
     try {
       await addDoc(collection(db, "contacts"), {
@@ -846,12 +973,11 @@
         timestamp: serverTimestamp()
       });
     } catch (e) {
-      console.error("Firebase error:", e);
+      console.error("Firebase store error:", e);
     }
     return emailSent;
   };
 
-  // Resume download tracking
   window.trackResumeDownload = async () => {
     try {
       const ref = doc(db, "analytics", "resume");
@@ -861,7 +987,6 @@
     }
   };
 
-  // Track visitor
   window.trackVisitor = async () => {
     try {
       await addDoc(collection(db, "visitors"), {

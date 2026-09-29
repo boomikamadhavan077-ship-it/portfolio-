@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Boomika M – 3D Interactive Executive Portfolio. Aspiring Data Analyst, AI & Data Science Student, Python Developer, Power BI & SQL Specialist." />
-  <meta name="keywords" content="Boomika M, Data Analyst, AI, Data Science, Python Developer, Power BI, Machine Learning, Portfolio, SQL, 3D Web, Three.js" />
+  <meta name="description" content="Boomika M – 3D Interactive Portfolio. Aspiring Data Analyst, AI & Data Science Student, Python Developer, Power BI & SQL Specialist." />
+  <meta name="keywords" content="Boomika M, Data Analyst, AI, Data Science, Python Developer, Power BI, Machine Learning, Portfolio, SQL, 3D Web, Three.js, 3D Portfolio" />
   <meta name="author" content="Boomika M" />
 
   <!-- Open Graph / Social Sharing -->
-  <meta property="og:title" content="Boomika M | 3D AI & Data Science Portfolio" />
+  <meta property="og:title" content="Boomika M | 3D Interactive AI Portfolio" />
   <meta property="og:description" content="Aspiring Data Analyst | AI & Data Science Student | Python Developer | 3D Interactive Experience" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://boomika-portfolio.web.app" />
 
-  <title>Boomika M | 3D AI & Data Science Portfolio</title>
+  <title>Boomika M | 3D Interactive Portfolio</title>
 
   <!-- Favicon SVG -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>" />
@@ -26,10 +26,13 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- Three.js 3D WebGL Library CDN -->
+  <!-- Three.js 3D WebGL Engine CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   
-  <!-- VanillaTilt.js 3D Card Tilt Effect CDN -->
+  <!-- Three.js OrbitControls CDN for 360 Dragging -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+  <!-- VanillaTilt.js 3D Card Tilt CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
 
   <!-- Chart.js CDN for Interactive Analytics Sandbox -->
@@ -51,8 +54,8 @@
 <!-- ========== LOADING SCREEN ========== -->
 <div id="loader">
   <div class="loader-content">
-    <div class="loader-logo">&lt;BOOMIKA MADHAVAN 3D /&gt;</div>
-    <div class="loader-sub">INITIALIZING 3D WEBGL GRAPHICS...</div>
+    <div class="loader-logo">&lt;BOOMIKA 3D DATA LAB /&gt;</div>
+    <div class="loader-sub">LOADING 3D WEBGL GRAPHICS ENGINE...</div>
     <div class="loader-bar"><div class="loader-progress"></div></div>
   </div>
 </div>
@@ -61,15 +64,15 @@
 <nav class="navbar" id="navbar">
   <div class="nav-container">
     <a href="#home" class="nav-logo">
-      <span class="logo-accent">&lt;</span>BOOMIKA<span class="logo-accent">.M/&gt;</span>
+      <span class="logo-accent">&lt;</span>BOOMIKA<span class="logo-accent">.3D/&gt;</span>
     </a>
     
     <ul class="nav-links" id="navLinks">
-      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#home" class="nav-link active">3D Home</a></li>
       <li><a href="#about" class="nav-link">About</a></li>
       <li><a href="#analytics" class="nav-link">Live Analytics</a></li>
       <li><a href="#skills" class="nav-link">Skills</a></li>
-      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#projects" class="nav-link">3D Projects</a></li>
       <li><a href="#snippets" class="nav-link">Code</a></li>
       <li><a href="#certifications" class="nav-link">Certifications</a></li>
       <li><a href="#experience" class="nav-link">Experience</a></li>
@@ -77,9 +80,9 @@
     </ul>
 
     <div class="nav-actions">
-      <div class="status-indicator" title="Open for Roles & Internships">
+      <div class="status-indicator" title="Click & Drag to Rotate 3D Core">
         <span class="status-dot"></span>
-        <span class="status-text">3D Interactive</span>
+        <span class="status-text">3D WebGL Active</span>
       </div>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
         <i class="fas fa-sun" id="themeIcon"></i>
@@ -93,8 +96,8 @@
 
 <!-- ========== 3D HERO SECTION ========== -->
 <section class="hero" id="home">
-  <!-- 3D Three.js WebGL Canvas Background -->
-  <canvas id="threeCanvas"></canvas>
+  <!-- Three.js Background Ambient Canvas -->
+  <canvas id="bg3DCanvas"></canvas>
 
   <div class="hero-bg">
     <div class="hero-glow glow-1"></div>
@@ -103,7 +106,7 @@
 
   <div class="hero-container">
     <div class="hero-text" data-aos="fade-right">
-      <div class="badge-tag"><i class="fas fa-cube"></i> 3D Interactive Experience · AI & Data Science</div>
+      <div class="badge-tag"><i class="fas fa-cube"></i> 3D WebGL Interactive · AI & Data Science</div>
       
       <h1 class="hero-name">BOOMIKA M</h1>
       
@@ -114,9 +117,9 @@
       </div>
 
       <p class="hero-bio">
-        Engineering <strong>interactive data visualizations</strong>, automated 
+        Building <strong>3D interactive data dashboards</strong>, automated 
         <strong>Python & SQL ETL pipelines</strong>, and deploying 
-        <strong>Machine Learning models & Power BI dashboards</strong> with 3D immersive design.
+        <strong>Machine Learning models</strong> for business intelligence.
       </p>
 
       <div class="hero-buttons">
@@ -124,7 +127,7 @@
           <i class="fas fa-file-arrow-down"></i> Download Resume (PDF)
         </a>
         <a href="#projects" class="btn btn-outline">
-          <i class="fas fa-layer-group"></i> View 3D Projects
+          <i class="fas fa-cubes"></i> Explore 3D Projects
         </a>
         <button class="btn btn-ghost" id="copyEmailBtn" onclick="copyEmail()">
           <i class="fas fa-copy"></i> <span id="copyEmailText">Copy Email</span>
@@ -144,65 +147,28 @@
       </div>
     </div>
 
-    <!-- Live Code Preview Terminal Widget with 3D Tilt -->
-    <div class="hero-code-widget" data-aos="fade-left">
-      <div class="terminal-window glass tilt-card" data-tilt data-tilt-max="12" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
-        <div class="terminal-header">
-          <div class="terminal-buttons">
-            <span class="term-btn term-close"></span>
-            <span class="term-btn term-min"></span>
-            <span class="term-btn term-max"></span>
-          </div>
-          <div class="terminal-tabs">
-            <span class="term-tab active" onclick="switchTermTab('py')">churn_model.py</span>
-            <span class="term-tab" onclick="switchTermTab('sql')">sales_query.sql</span>
-          </div>
+    <!-- Interactive 3D WebGL Object Viewer Window -->
+    <div class="hero-3d-viewer-container" data-aos="fade-left">
+      <div class="hero-3d-card glass tilt-card" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.2">
+        <div class="viewer-header">
+          <div class="viewer-badge"><i class="fas fa-hand-pointer"></i> 3D Interactive Model (Click & Drag 360°)</div>
+          <button class="btn-reset-3d" onclick="reset3DCamera()" title="Reset Camera View"><i class="fas fa-sync-alt"></i></button>
         </div>
 
-        <div class="terminal-body" id="termCodePy">
-          <pre><code><span class="code-keyword">import</span> pandas <span class="code-keyword">as</span> pd
-<span class="code-keyword">from</span> sklearn.ensemble <span class="code-keyword">import</span> RandomForestClassifier
-<span class="code-keyword">from</span> sklearn.metrics <span class="code-keyword">import</span> accuracy_score
-
-<span class="code-comment"># Load & preprocess customer dataset</span>
-df = pd.read_csv(<span class="code-str">"customer_telemetry.csv"</span>)
-X, y = df.drop(columns=[<span class="code-str">"churn"</span>]), df[<span class="code-str">"churn"</span>]
-
-<span class="code-comment"># Train ChurnGuard 3D Predictive ML Model</span>
-model = RandomForestClassifier(n_estimators=<span class="code-num">100</span>, random_state=<span class="code-num">42</span>)
-model.fit(X, y)
-
-accuracy = accuracy_score(y, model.predict(X))
-<span class="code-func">print</span>(<span class="code-str">f"Model Accuracy: {accuracy * 100:.2f}%"</span>)
-<span class="code-comment"># Outputs: Model Accuracy: 94.20%</span></code></pre>
+        <!-- Dedicated Three.js WebGL Interactive 3D Canvas -->
+        <div class="canvas-3d-wrapper">
+          <canvas id="hero3DCanvas"></canvas>
         </div>
 
-        <div class="terminal-body" id="termCodeSql" style="display:none;">
-          <pre><code><span class="code-keyword">WITH</span> MonthlySales <span class="code-keyword">AS</span> (
-  <span class="code-keyword">SELECT</span> 
-    DATE_TRUNC(<span class="code-str">'month'</span>, transaction_date) <span class="code-keyword">AS</span> month,
-    region,
-    SUM(revenue) <span class="code-keyword">AS</span> total_revenue,
-    COUNT(DISTINCT customer_id) <span class="code-keyword">AS</span> active_clients
-  <span class="code-keyword">FROM</span> enterprise_sales
-  <span class="code-keyword">GROUP BY</span> 1, 2
-)
-<span class="code-keyword">SELECT</span> 
-  month, region, total_revenue,
-  AVG(total_revenue) <span class="code-keyword">OVER</span> (<span class="code-keyword">PARTITION BY</span> region) <span class="code-keyword">AS</span> avg_regional_rev
-<span class="code-keyword">FROM</span> MonthlySales
-<span class="code-keyword">ORDER BY</span> total_revenue <span class="code-keyword">DESC</span>;</code></pre>
+        <div class="viewer-footer">
+          <span class="viewer-info"><i class="fas fa-brain"></i> AI Neural Data Core</span>
+          <span class="viewer-info"><i class="fas fa-spin fa-snowflake"></i> Real-Time Orbit Controls</span>
         </div>
       </div>
-
-      <!-- Floating 3D Tech Badges -->
-      <div class="hero-badge badge-1 floating-3d"><i class="fab fa-python"></i> Python 3.11</div>
-      <div class="hero-badge badge-2 floating-3d"><i class="fas fa-chart-pie"></i> Power BI & DAX</div>
-      <div class="hero-badge badge-3 floating-3d"><i class="fas fa-database"></i> SQL & MySQL</div>
-      <div class="hero-badge badge-4 floating-3d"><i class="fas fa-cube"></i> Three.js 3D</div>
     </div>
   </div>
 
+  <!-- Hero Stats Bar -->
   <div class="hero-stats">
     <div class="stat-item">
       <div class="stat-num-wrapper">
@@ -264,11 +230,11 @@ accuracy = accuracy_score(y, model.predict(X))
       </div>
 
       <div class="about-card glass tilt-card" data-tilt data-tilt-max="15" data-tilt-glare data-tilt-max-glare="0.2" data-aos="fade-up" data-aos-delay="300">
-        <div class="about-icon 3d-pop"><i class="fas fa-layer-group"></i></div>
+        <div class="about-icon 3d-pop"><i class="fas fa-cube"></i></div>
         <h3 class="3d-pop">Core Competencies</h3>
         <div class="interest-tags 3d-pop" style="margin-top:0.75rem;">
+          <span class="tag">Three.js 3D WebGL</span>
           <span class="tag">ETL Pipelines</span>
-          <span class="tag">Three.js 3D</span>
           <span class="tag">Power BI & DAX</span>
           <span class="tag">Python & Pandas</span>
           <span class="tag">SQL Queries</span>
@@ -346,8 +312,8 @@ accuracy = accuracy_score(y, model.predict(X))
           <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
         </div>
         <div class="skill-item 3d-pop">
-          <div class="skill-info"><span><i class="fab fa-js"></i> JavaScript (ES6+ & Three.js)</span><span>82%</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+          <div class="skill-info"><span><i class="fab fa-js"></i> JavaScript (ES6+ & Three.js 3D)</span><span>84%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="84"></div></div>
         </div>
         <div class="skill-item 3d-pop">
           <div class="skill-info"><span><i class="fab fa-html5"></i> HTML5 / CSS3 3D</span><span>90%</span></div>
@@ -410,12 +376,12 @@ accuracy = accuracy_score(y, model.predict(X))
   </div>
 </section>
 
-<!-- ========== PROJECTS SECTION WITH 3D TILT & INSTANT SEARCH ========== -->
+<!-- ========== 3D FLIP PROJECT CARDS SECTION ========== -->
 <section class="section section-alt" id="projects">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <p class="section-label">Portfolio Showcase</p>
-      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-label">Interactive 3D Portfolio</p>
+      <h2 class="section-title">Featured 3D Projects</h2>
     </div>
 
     <!-- Instant Search & Category Filter Bar -->
@@ -433,106 +399,151 @@ accuracy = accuracy_score(y, model.predict(X))
       </div>
     </div>
 
-    <div class="projects-grid" id="projectsGrid">
+    <div class="projects-grid-3d" id="projectsGrid">
 
-      <!-- Project 1: BI System -->
-      <div class="project-card glass tilt-card" data-tilt data-tilt-max="15" data-tilt-glare data-tilt-max-glare="0.2" data-pcategory="analytics web" data-aos="fade-up" data-aos-delay="100">
-        <div class="project-img 3d-pop">
-          <i class="fas fa-chart-pie"></i>
-          <span class="project-type-badge">Data Analytics & BI</span>
-        </div>
-        <div class="project-content">
-          <div class="project-tags 3d-pop">
-            <span class="ptag">Python</span>
-            <span class="ptag">SQL</span>
-            <span class="ptag">Power BI</span>
-            <span class="ptag">Firebase</span>
+      <!-- Project 1: BI System 3D Flip Card -->
+      <div class="flip-card-container" data-pcategory="analytics web" data-aos="fade-up" data-aos-delay="100">
+        <div class="flip-card-inner">
+          <!-- Front Face -->
+          <div class="flip-card-front glass">
+            <div class="project-img 3d-pop">
+              <i class="fas fa-chart-pie"></i>
+              <span class="project-type-badge">Data Analytics & BI</span>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span class="ptag">Python</span>
+                <span class="ptag">SQL</span>
+                <span class="ptag">Power BI</span>
+              </div>
+              <h3>End-to-End Business Intelligence System</h3>
+              <p>Automates enterprise ETL pipelines, calculates business KPIs, and renders executive Power BI dashboard reports.</p>
+              <div class="project-metrics">
+                <span class="metric-chip"><i class="fas fa-bolt"></i> Automated ETL</span>
+                <span class="metric-chip"><i class="fas fa-sync"></i> Real-time DB</span>
+              </div>
+              <button class="btn-flip-trigger" onclick="toggle3DFlip(this)">
+                <i class="fas fa-arrows-rotate"></i> Flip Card in 3D
+              </button>
+            </div>
           </div>
-          <h3 class="3d-pop">End-to-End Business Intelligence System</h3>
-          <p class="3d-pop">
-            Built an enterprise Business Intelligence solution that automates data extraction, transformation, storage, and visual report generation for data-driven strategy.
-          </p>
-          <div class="project-metrics 3d-pop">
-            <span class="metric-chip"><i class="fas fa-bolt"></i> Automated ETL</span>
-            <span class="metric-chip"><i class="fas fa-sync"></i> Real-time DB</span>
-          </div>
-          <div class="project-actions 3d-pop">
-            <a href="https://bi-system-ezft.onrender.com/" target="_blank" rel="noopener" class="btn-sm btn-primary-sm">
-              <i class="fas fa-external-link-alt"></i> Live Demo
-            </a>
-            <a href="https://github.com/boomikamadhavan077-ship-it/bi-system" target="_blank" rel="noopener" class="btn-sm btn-outline-sm">
-              <i class="fab fa-github"></i> Code
-            </a>
-            <button class="btn-sm btn-ghost-sm" onclick="openProjectModal('End-to-End Business Intelligence System', 'Automated ETL pipeline integrating Python, SQL, and Firebase with real-time Power BI reporting. Processes large volumes of transactional data, calculates automated business KPIs, and renders executive dashboard insights.', ['Python', 'SQL', 'Power BI', 'Firebase', 'ETL'], 'https://bi-system-ezft.onrender.com/', 'https://github.com/boomikamadhavan077-ship-it/bi-system')">
-              <i class="fas fa-info-circle"></i> Details
-            </button>
+          <!-- Back Face -->
+          <div class="flip-card-back glass">
+            <h3>Architecture & Technical Details</h3>
+            <p>Processes transactional data through Python cleaning scripts, populates Firebase & SQL databases, and renders interactive Power BI dashboards.</p>
+            <ul class="project-features">
+              <li><i class="fas fa-check"></i> Automated ETL Pipeline</li>
+              <li><i class="fas fa-check"></i> Real-time Firebase Firestore Sync</li>
+              <li><i class="fas fa-check"></i> Executive KPI Monitoring</li>
+            </ul>
+            <div class="flip-back-actions">
+              <a href="https://bi-system-ezft.onrender.com/" target="_blank" rel="noopener" class="btn-sm btn-primary-sm">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+              <a href="https://github.com/boomikamadhavan077-ship-it/bi-system" target="_blank" rel="noopener" class="btn-sm btn-outline-sm">
+                <i class="fab fa-github"></i> Code
+              </a>
+              <button class="btn-sm btn-ghost-sm" onclick="toggle3DFlip(this)">
+                <i class="fas fa-undo"></i> Flip Back
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Project 2: Customer Churn Prediction -->
-      <div class="project-card glass tilt-card" data-tilt data-tilt-max="15" data-tilt-glare data-tilt-max-glare="0.2" data-pcategory="ml" data-aos="fade-up" data-aos-delay="150">
-        <div class="project-img 3d-pop">
-          <i class="fas fa-user-minus"></i>
-          <span class="project-type-badge">Machine Learning</span>
-        </div>
-        <div class="project-content">
-          <div class="project-tags 3d-pop">
-            <span class="ptag">Python</span>
-            <span class="ptag">Scikit-Learn</span>
-            <span class="ptag">Random Forest</span>
-            <span class="ptag">Flask</span>
+      <!-- Project 2: Customer Churn Prediction 3D Flip Card -->
+      <div class="flip-card-container" data-pcategory="ml" data-aos="fade-up" data-aos-delay="150">
+        <div class="flip-card-inner">
+          <!-- Front Face -->
+          <div class="flip-card-front glass">
+            <div class="project-img 3d-pop">
+              <i class="fas fa-user-minus"></i>
+              <span class="project-type-badge">Machine Learning</span>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span class="ptag">Python</span>
+                <span class="ptag">Scikit-Learn</span>
+                <span class="ptag">Flask</span>
+              </div>
+              <h3>Customer Churn Prediction (ChurnGuard)</h3>
+              <p>Predictive ML classification engine identifying at-risk customers and calculating retention probability.</p>
+              <div class="project-metrics">
+                <span class="metric-chip"><i class="fas fa-bullseye"></i> 94.2% Accuracy</span>
+                <span class="metric-chip"><i class="fas fa-server"></i> Flask API</span>
+              </div>
+              <button class="btn-flip-trigger" onclick="toggle3DFlip(this)">
+                <i class="fas fa-arrows-rotate"></i> Flip Card in 3D
+              </button>
+            </div>
           </div>
-          <h3 class="3d-pop">Customer Churn Prediction (ChurnGuard)</h3>
-          <p class="3d-pop">
-            Developed a high-precision ML classification engine to calculate customer churn probability and identify key retention factors.
-          </p>
-          <div class="project-metrics 3d-pop">
-            <span class="metric-chip"><i class="fas fa-bullseye"></i> 94.2% Accuracy</span>
-            <span class="metric-chip"><i class="fas fa-server"></i> Flask API</span>
-          </div>
-          <div class="project-actions 3d-pop">
-            <a href="https://boomika.pythonanywhere.com/" target="_blank" rel="noopener" class="btn-sm btn-primary-sm">
-              <i class="fas fa-external-link-alt"></i> Live Demo
-            </a>
-            <a href="https://github.com/boomikamadhavan077-ship-it/churnguard" target="_blank" rel="noopener" class="btn-sm btn-outline-sm">
-              <i class="fab fa-github"></i> Code
-            </a>
-            <button class="btn-sm btn-ghost-sm" onclick="openProjectModal('Customer Churn Prediction (ChurnGuard)', 'Machine learning web platform deployed on PythonAnywhere. Utilizes Random Forest classification model trained on customer telemetry and subscription data to accurately identify churn risk factors and recommend retention strategies.', ['Python', 'Machine Learning', 'Random Forest', 'Flask', 'Pandas'], 'https://boomika.pythonanywhere.com/', 'https://github.com/boomikamadhavan077-ship-it/churnguard')">
-              <i class="fas fa-info-circle"></i> Details
-            </button>
+          <!-- Back Face -->
+          <div class="flip-card-back glass">
+            <h3>Model Architecture & Metrics</h3>
+            <p>Trained using Random Forest Classifier with cross-validation. Deployed on PythonAnywhere with Flask REST API endpoints.</p>
+            <ul class="project-features">
+              <li><i class="fas fa-check"></i> High Precision Customer Risk Scoring</li>
+              <li><i class="fas fa-check"></i> Automated Feature Engineering</li>
+              <li><i class="fas fa-check"></i> Live Web App Deployment</li>
+            </ul>
+            <div class="flip-back-actions">
+              <a href="https://boomika.pythonanywhere.com/" target="_blank" rel="noopener" class="btn-sm btn-primary-sm">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+              <a href="https://github.com/boomikamadhavan077-ship-it/churnguard" target="_blank" rel="noopener" class="btn-sm btn-outline-sm">
+                <i class="fab fa-github"></i> Code
+              </a>
+              <button class="btn-sm btn-ghost-sm" onclick="toggle3DFlip(this)">
+                <i class="fas fa-undo"></i> Flip Back
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Project 3: Sales Forecasting -->
-      <div class="project-card glass tilt-card" data-tilt data-tilt-max="15" data-tilt-glare data-tilt-max-glare="0.2" data-pcategory="analytics ml" data-aos="fade-up" data-aos-delay="200">
-        <div class="project-img 3d-pop">
-          <i class="fas fa-chart-line"></i>
-          <span class="project-type-badge">Predictive Analytics</span>
-        </div>
-        <div class="project-content">
-          <div class="project-tags 3d-pop">
-            <span class="ptag">Machine Learning</span>
-            <span class="ptag">Python</span>
-            <span class="ptag">Power BI</span>
-            <span class="ptag">Time-Series</span>
+      <!-- Project 3: Sales Forecasting 3D Flip Card -->
+      <div class="flip-card-container" data-pcategory="analytics ml" data-aos="fade-up" data-aos-delay="200">
+        <div class="flip-card-inner">
+          <!-- Front Face -->
+          <div class="flip-card-front glass">
+            <div class="project-img 3d-pop">
+              <i class="fas fa-chart-line"></i>
+              <span class="project-type-badge">Predictive Analytics</span>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span class="ptag">Time-Series</span>
+                <span class="ptag">Python</span>
+                <span class="ptag">Power BI</span>
+              </div>
+              <h3>Sales Forecasting via ML & Power BI</h3>
+              <p>Time-series predictive analytics model forecasting quarterly revenue trends with Power BI reporting.</p>
+              <div class="project-metrics">
+                <span class="metric-chip"><i class="fas fa-clock"></i> Time-Series ML</span>
+                <span class="metric-chip"><i class="fas fa-chart-bar"></i> BI Reporting</span>
+              </div>
+              <button class="btn-flip-trigger" onclick="toggle3DFlip(this)">
+                <i class="fas fa-arrows-rotate"></i> Flip Card in 3D
+              </button>
+            </div>
           </div>
-          <h3 class="3d-pop">Sales Forecasting via ML & Power BI</h3>
-          <p class="3d-pop">
-            Engineered predictive sales forecasting models combining historical revenue data with time-series ML models and Power BI dashboard reporting.
-          </p>
-          <div class="project-metrics 3d-pop">
-            <span class="metric-chip"><i class="fas fa-clock"></i> Time-Series ML</span>
-            <span class="metric-chip"><i class="fas fa-chart-bar"></i> BI Reporting</span>
-          </div>
-          <div class="project-actions 3d-pop">
-            <a href="https://github.com/boomikamadhavan077-ship-it" target="_blank" rel="noopener" class="btn-sm btn-outline-sm">
-              <i class="fab fa-github"></i> GitHub
-            </a>
-            <button class="btn-sm btn-ghost-sm" onclick="openProjectModal('Sales Forecasting using ML & Power BI', 'Predictive machine learning time-series project forecasting quarterly sales demand. Features model evaluation metrics (RMSE, MAE), data preparation scripts, and Power BI interactive reports for business decision support.', ['Python', 'Power BI', 'Time Series', 'Pandas', 'Scikit-Learn'], '#', 'https://github.com/boomikamadhavan077-ship-it')">
-              <i class="fas fa-info-circle"></i> Details
-            </button>
+          <!-- Back Face -->
+          <div class="flip-card-back glass">
+            <h3>Forecasting Details</h3>
+            <p>Calculates quarterly revenue trajectories, reduces forecast error margins, and provides strategic insights for business inventory planning.</p>
+            <ul class="project-features">
+              <li><i class="fas fa-check"></i> Historical Trend Decomposition</li>
+              <li><i class="fas fa-check"></i> Time-Series Evaluation (MAPE/RMSE)</li>
+              <li><i class="fas fa-check"></i> Power BI Executive Views</li>
+            </ul>
+            <div class="flip-back-actions">
+              <a href="https://github.com/boomikamadhavan077-ship-it" target="_blank" rel="noopener" class="btn-sm btn-outline-sm">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <button class="btn-sm btn-ghost-sm" onclick="toggle3DFlip(this)">
+                <i class="fas fa-undo"></i> Flip Back
+              </button>
+            </div>
           </div>
         </div>
       </div>

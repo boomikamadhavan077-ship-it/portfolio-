@@ -1,5 +1,5 @@
 /* ============================================
-   BOOMIKA M — 3D INTERACTIVE PORTFOLIO JS (THREE.JS + VANILLA TILT)
+   BOOMIKA M — 3D INTERACTIVE WEBGL ENGINE (THREE.JS + ORBIT CONTROLS)
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,110 +13,195 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, 1000);
 
-  // ===== THREE.JS 3D WEBGL GRAPHICS SYSTEM =====
-  function initThreeJS() {
-    const canvas = document.getElementById('threeCanvas');
-    if (!canvas || typeof THREE === 'undefined') return;
+  // ===== 1. INTERACTIVE 3D HERO MODEL ENGINE WITH ORBIT CONTROLS =====
+  let heroControls = null;
+  let heroCamera = null;
 
-    // 1. Scene, Camera, Renderer
+  function initHero3DCanvas() {
+    const container = document.querySelector('.canvas-3d-wrapper');
+    const canvas = document.getElementById('hero3DCanvas');
+    if (!canvas || !container || typeof THREE === 'undefined') return;
+
+    const width = container.clientWidth || 400;
+    const height = container.clientHeight || 360;
+
+    // 3D Scene & Camera
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      60,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
-    camera.position.z = 30;
+    heroCamera = new THREE.PerspectiveCamera(50, width / height, 0.1, 1000);
+    heroCamera.position.set(0, 0, 18);
 
+    // WebGL Renderer
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas,
       alpha: true,
       antialias: true
     });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // Three.js OrbitControls for 360 Degree Mouse Dragging & Zooming
+    if (typeof THREE.OrbitControls !== 'undefined') {
+      heroControls = new THREE.OrbitControls(heroCamera, renderer.domElement);
+      heroControls.enableDamping = true;
+      heroControls.dampingFactor = 0.05;
+      heroControls.rotateSpeed = 0.8;
+      heroControls.zoomSpeed = 0.8;
+      heroControls.enableZoom = true;
+      heroControls.maxDistance = 30;
+      heroControls.minDistance = 10;
+    }
+
+    // 3D Lighting Setup
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambientLight);
+
+    const pointLight = new THREE.PointLight(0x38bdf8, 2, 50);
+    pointLight.position.set(10, 10, 10);
+    scene.add(pointLight);
+
+    const pointLight2 = new THREE.PointLight(0x2563eb, 2, 50);
+    pointLight2.position.set(-10, -10, -10);
+    scene.add(pointLight2);
+
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+    dirLight.position.set(5, 12, 10);
+    scene.add(dirLight);
+
+    // 3D Object Group
+    const coreGroup = new THREE.Group();
+    scene.add(coreGroup);
+
+    // Inner Metallic Core Sphere
+    const innerGeo = new THREE.SphereGeometry(3.5, 32, 32);
+    const innerMat = new THREE.MeshStandardMaterial({
+      color: 0x0f172a,
+      emissive: 0x1e293b,
+      metalness: 0.85,
+      roughness: 0.2,
+      wireframe: false
+    });
+    const innerSphere = new THREE.Mesh(innerGeo, innerMat);
+    coreGroup.add(innerSphere);
+
+    // Outer 3D Wireframe Icosahedron Cage
+    const cageGeo = new THREE.IcosahedronGeometry(5.2, 1);
+    const cageMat = new THREE.MeshStandardMaterial({
+      color: 0x38bdf8,
+      wireframe: true,
+      emissive: 0x2563eb,
+      emissiveIntensity: 0.4
+    });
+    const cage = new THREE.Mesh(cageGeo, cageMat);
+    coreGroup.add(cage);
+
+    // 3 Orbital Rings (Armillary Sphere Effect)
+    const ringMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8, wireframe: true, transparent: true, opacity: 0.4 });
+    
+    const ring1 = new THREE.Mesh(new THREE.TorusGeometry(6.5, 0.08, 16, 100), ringMat);
+    const ring2 = new THREE.Mesh(new THREE.TorusGeometry(7.2, 0.08, 16, 100), ringMat);
+    const ring3 = new THREE.Mesh(new THREE.TorusGeometry(7.8, 0.08, 16, 100), ringMat);
+
+    ring1.rotation.x = Math.PI / 3;
+    ring2.rotation.y = Math.PI / 4;
+    ring3.rotation.x = -Math.PI / 4;
+
+    coreGroup.add(ring1);
+    coreGroup.add(ring2);
+    coreGroup.add(ring3);
+
+    // Floating 3D Satellite Nodes
+    const satCount = 8;
+    const satGroup = new THREE.Group();
+    const satGeo = new THREE.OctahedronGeometry(0.6);
+    const satMat = new THREE.MeshStandardMaterial({ color: 0x10b981, emissive: 0x10b981, emissiveIntensity: 0.5 });
+
+    for (let i = 0; i < satCount; i++) {
+      const angle = (i / satCount) * Math.PI * 2;
+      const radius = 8.5;
+      const sat = new THREE.Mesh(satGeo, satMat);
+      sat.position.set(Math.cos(angle) * radius, Math.sin(angle) * 2, Math.sin(angle) * radius);
+      satGroup.add(sat);
+    }
+    coreGroup.add(satGroup);
+
+    // 3D Render Loop
+    function animateHero3D() {
+      requestAnimationFrame(animateHero3D);
+
+      if (heroControls) {
+        heroControls.update();
+      } else {
+        coreGroup.rotation.y += 0.008;
+      }
+
+      cage.rotation.x += 0.004;
+      cage.rotation.y += 0.006;
+
+      ring1.rotation.z += 0.005;
+      ring2.rotation.x += 0.004;
+      ring3.rotation.y += 0.006;
+
+      satGroup.rotation.y -= 0.008;
+
+      renderer.render(scene, heroCamera);
+    }
+    animateHero3D();
+
+    // Resize Handler
+    window.addEventListener('resize', () => {
+      const w = container.clientWidth || 400;
+      const h = container.clientHeight || 360;
+      heroCamera.aspect = w / h;
+      heroCamera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    });
+  }
+
+  initHero3DCanvas();
+
+  window.reset3DCamera = () => {
+    if (heroCamera && heroControls) {
+      heroCamera.position.set(0, 0, 18);
+      heroControls.reset();
+    }
+  };
+
+  // ===== 2. THREE.JS BACKGROUND AMBIENT PARTICLES =====
+  function initBg3DCanvas() {
+    const canvas = document.getElementById('bg3DCanvas');
+    if (!canvas || typeof THREE === 'undefined') return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 40;
+
+    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // 2. 3D Wireframe TorusKnot Data Core
-    const geometry = new THREE.TorusKnotGeometry(8, 2.5, 120, 16);
-    const material = new THREE.MeshBasicMaterial({
-      color: 0x38bdf8,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.25
-    });
-    const torusKnot = new THREE.Mesh(geometry, material);
-    scene.add(torusKnot);
-
-    // 3. 3D Dynamic Particle Neural Network Constellation
-    const particleCount = 450;
-    const particlesGeometry = new THREE.BufferGeometry();
+    const particleCount = 400;
+    const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
-    const colors = new Float32Array(particleCount * 3);
-
-    const color1 = new THREE.Color(0x2563eb); // Primary Blue
-    const color2 = new THREE.Color(0x38bdf8); // Cyan Accent
 
     for (let i = 0; i < particleCount * 3; i += 3) {
-      positions[i] = (Math.random() - 0.5) * 100;
-      positions[i + 1] = (Math.random() - 0.5) * 100;
-      positions[i + 2] = (Math.random() - 0.5) * 100;
-
-      const mixedColor = color1.clone().lerp(color2, Math.random());
-      colors[i] = mixedColor.r;
-      colors[i + 1] = mixedColor.g;
-      colors[i + 2] = mixedColor.b;
+      positions[i] = (Math.random() - 0.5) * 120;
+      positions[i + 1] = (Math.random() - 0.5) * 120;
+      positions[i + 2] = (Math.random() - 0.5) * 120;
     }
 
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const material = new THREE.PointsMaterial({ size: 1.5, color: 0x38bdf8, transparent: true, opacity: 0.4 });
+    const pSystem = new THREE.Points(geometry, material);
+    scene.add(pSystem);
 
-    const particlesMaterial = new THREE.PointsMaterial({
-      size: 1.2,
-      vertexColors: true,
-      transparent: true,
-      opacity: 0.6,
-      blending: THREE.AdditiveBlending
-    });
-
-    const particleSystem = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particleSystem);
-
-    // 4. Mouse Interactive Parallax Tracking
-    let mouseX = 0;
-    let mouseY = 0;
-    let targetX = 0;
-    let targetY = 0;
-
-    const windowHalfX = window.innerWidth / 2;
-    const windowHalfY = window.innerHeight / 2;
-
-    document.addEventListener('mousemove', (e) => {
-      mouseX = (e.clientX - windowHalfX) * 0.01;
-      mouseY = (e.clientY - windowHalfY) * 0.01;
-    });
-
-    // 5. 3D Render Loop
-    function animate3D() {
-      requestAnimationFrame(animate3D);
-
-      // Smooth camera parallax easing
-      targetX += (mouseX - targetX) * 0.05;
-      targetY += (mouseY - targetY) * 0.05;
-
-      camera.position.x = targetX;
-      camera.position.y = -targetY;
-      camera.lookAt(scene.position);
-
-      // Continuous 3D Core Rotation
-      torusKnot.rotation.x += 0.003;
-      torusKnot.rotation.y += 0.005;
-      particleSystem.rotation.y += 0.001;
-
+    function animateBg() {
+      requestAnimationFrame(animateBg);
+      pSystem.rotation.y += 0.0008;
+      pSystem.rotation.x += 0.0004;
       renderer.render(scene, camera);
     }
-    animate3D();
+    animateBg();
 
-    // 6. Handle Window Resizing
     window.addEventListener('resize', () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
@@ -124,20 +209,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  initThreeJS();
+  initBg3DCanvas();
 
-  // ===== VANILLA TILT 3D CARD INITIALIZATION =====
+  // ===== 3. VANILLA TILT 3D BINDINGS =====
   if (typeof VanillaTilt !== 'undefined') {
     VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
-      max: 15,
+      max: 12,
       speed: 400,
       glare: true,
-      "max-glare": 0.2,
+      "max-glare": 0.18,
       scale: 1.02
     });
   }
 
-  // ===== TOP SCROLL PROGRESS BAR & NAVBAR =====
+  // ===== 4. 3D CARD FLIP HANDLER =====
+  window.toggle3DFlip = (btn) => {
+    const cardInner = btn.closest('.flip-card-inner') || btn.closest('.flip-card-container')?.querySelector('.flip-card-inner');
+    if (cardInner) {
+      cardInner.classList.toggle('flipped');
+    }
+  };
+
+  // ===== 5. TOP SCROLL PROGRESS BAR & NAVBAR =====
   const scrollProgress = document.getElementById('scrollProgress');
   const navbar = document.getElementById('navbar');
   const backToTop = document.getElementById('backToTop');
@@ -165,7 +258,6 @@ document.addEventListener('DOMContentLoaded', () => {
       backToTop.classList.remove('visible');
     }
 
-    // ScrollSpy active link tracking
     sections.forEach(section => {
       const top = section.offsetTop - 140;
       const bottom = top + section.offsetHeight;
@@ -232,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ===== TYPING ANIMATION =====
-  const words = ['Data Analytics & 3D Web', 'Python ETL & Automation', 'Power BI & DAX', 'Machine Learning Models'];
+  const words = ['3D Interactive Data Web', 'Python ETL & Automation', 'Power BI & DAX', 'Machine Learning Models'];
   let wordIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
@@ -265,25 +357,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   setTimeout(typeEffect, 800);
-
-  // ===== HERO TERMINAL TAB SWITCHER =====
-  window.switchTermTab = (tab) => {
-    const tabs = document.querySelectorAll('.term-tab');
-    const pyBox = document.getElementById('termCodePy');
-    const sqlBox = document.getElementById('termCodeSql');
-
-    tabs.forEach(t => t.classList.remove('active'));
-
-    if (tab === 'py') {
-      tabs[0].classList.add('active');
-      pyBox.style.display = 'block';
-      sqlBox.style.display = 'none';
-    } else {
-      tabs[1].classList.add('active');
-      pyBox.style.display = 'none';
-      sqlBox.style.display = 'block';
-    }
-  };
 
   // ===== COPY EMAIL TO CLIPBOARD =====
   window.copyEmail = () => {
@@ -488,7 +561,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ===== PROJECT CATEGORY FILTER & INSTANT SEARCH =====
   const projectFilterBtns = document.querySelectorAll('.project-filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
+  const projectCards = document.querySelectorAll('.flip-card-container');
 
   projectFilterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -515,11 +588,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const matchesSearch = (!searchVal || cardText.includes(searchVal));
 
       if (matchesCategory && matchesSearch) {
-        card.style.display = 'flex';
-        setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 30);
+        card.style.display = 'block';
+        setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'scale(1)'; }, 30);
       } else {
         card.style.opacity = '0';
-        card.style.transform = 'translateY(15px)';
+        card.style.transform = 'scale(0.95)';
         setTimeout(() => { card.style.display = 'none'; }, 250);
       }
     });
@@ -540,49 +613,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (etlBox) etlBox.style.display = key === 'etl' ? 'block' : 'none';
     if (sqlBox) sqlBox.style.display = key === 'sql' ? 'block' : 'none';
     if (mlBox) mlBox.style.display = key === 'ml' ? 'block' : 'none';
-  };
-
-  // ===== PROJECT MODAL LOGIC =====
-  window.openProjectModal = (title, desc, tags, demoUrl, githubUrl) => {
-    document.getElementById('pModalTitle').textContent = title;
-    document.getElementById('pModalDesc').textContent = desc;
-
-    const tagsContainer = document.getElementById('pModalTags');
-    tagsContainer.innerHTML = '';
-    tags.forEach(tag => {
-      const span = document.createElement('span');
-      span.className = 'ptag';
-      span.textContent = tag;
-      tagsContainer.appendChild(span);
-    });
-
-    const demoBtn = document.getElementById('pModalDemoBtn');
-    if (demoUrl && demoUrl !== '#') {
-      demoBtn.href = demoUrl;
-      demoBtn.style.display = 'inline-flex';
-    } else {
-      demoBtn.style.display = 'none';
-    }
-
-    const githubBtn = document.getElementById('pModalGithubBtn');
-    if (githubUrl && githubUrl !== '#') {
-      githubBtn.href = githubUrl;
-      githubBtn.style.display = 'inline-flex';
-    } else {
-      githubBtn.style.display = 'none';
-    }
-
-    const modal = document.getElementById('projectModal');
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  };
-
-  window.closeProjectModal = () => {
-    const modal = document.getElementById('projectModal');
-    if (modal) {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
   };
 
   // ===== CERTIFICATE LIGHTBOX MODAL =====
@@ -632,7 +662,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      window.closeProjectModal();
       window.closeCertModal();
     }
   });
@@ -680,7 +709,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // ===== RESUME DOWNLOAD TRACKING =====
+  // ===== RESUME TRACKING =====
   const resumeBtns = document.querySelectorAll('#downloadResumeBtn');
   resumeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
